@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Users, Sparkles, Zap, Target, Eye, Heart } from "lucide-react";
 import { Hero } from "@/components/marketing/Hero";
 import { StatsSection } from "@/components/marketing/StatsSection";
 import { ServiceCard } from "@/components/marketing/ServiceCard";
@@ -21,15 +22,24 @@ export const metadata: Metadata = buildMetadata({
 });
 
 const WHY_POINTS = [
-  { title: "Human Expertise", description: "Experienced recruiters who understand people beyond resumes." },
-  { title: "Intelligent Matching", description: "Technology and structured assessment identify stronger matches." },
-  { title: "Speed", description: "We reduce unnecessary delays in the hiring process." },
+  { title: "Human Expertise", description: "Experienced recruiters who understand people beyond resumes.", icon: Users },
+  {
+    title: "Intelligent Matching",
+    description: "Technology and structured assessment identify stronger matches.",
+    icon: Sparkles,
+  },
+  { title: "Speed", description: "We reduce unnecessary delays in the hiring process.", icon: Zap },
   {
     title: "Precision",
     description: "Matching skills, experience, culture, career goals, and business requirements.",
+    icon: Target,
   },
-  { title: "Transparency", description: "Clients and candidates stay informed throughout the process." },
-  { title: "Long-Term Relationships", description: "We don't disappear after placement." },
+  {
+    title: "Transparency",
+    description: "Clients and candidates stay informed throughout the process.",
+    icon: Eye,
+  },
+  { title: "Long-Term Relationships", description: "We don't disappear after placement.", icon: Heart },
 ];
 
 const EMPLOYER_STEPS = [
@@ -62,10 +72,6 @@ export default function HomePage() {
 
   return (
     <>
-      <div className="border-b border-navy-100 bg-navy-900 py-2 text-center text-sm text-offwhite">
-        Human-first hiring, built for how work actually happens.
-      </div>
-
       <Hero />
 
       <StatsSection stats={[]} />
@@ -75,8 +81,8 @@ export default function HomePage() {
           <h2 className="text-display-md font-bold text-navy-900">Workforce Solutions Built Around Your Needs</h2>
         </ScrollReveal>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <ServiceCard key={service.slug} service={service} />
+          {services.map((service, index) => (
+            <ServiceCard key={service.slug} service={service} featured={index === 0} />
           ))}
         </div>
       </section>
@@ -88,8 +94,14 @@ export default function HomePage() {
           </ScrollReveal>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {WHY_POINTS.map((point) => (
-              <div key={point.title} className="rounded-xl border border-navy-100 p-6">
-                <h3 className="font-semibold text-navy-900">{point.title}</h3>
+              <div
+                key={point.title}
+                className="rounded-2xl border border-navy-100 bg-offwhite p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-soft"
+              >
+                <div className="flex size-10 items-center justify-center rounded-xl bg-accent/10 text-accent">
+                  <point.icon className="size-5" strokeWidth={1.75} />
+                </div>
+                <h3 className="mt-4 font-semibold text-navy-900">{point.title}</h3>
                 <p className="mt-2 text-sm text-navy-700">{point.description}</p>
               </div>
             ))}

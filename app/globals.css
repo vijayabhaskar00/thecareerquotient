@@ -66,6 +66,63 @@ a {
   @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-offwhite;
 }
 
+.shadow-soft {
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 8px 24px -8px rgba(11, 18, 32, 0.12);
+}
+
+.shadow-soft-lg {
+  box-shadow: 0 2px 4px rgba(11, 18, 32, 0.04), 0 24px 48px -12px rgba(11, 18, 32, 0.18);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.glass-panel-dark {
+  background: rgba(250, 249, 246, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(250, 249, 246, 0.14);
+}
+
+.mesh-bg {
+  position: relative;
+  isolation: isolate;
+}
+
+.mesh-bg::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  z-index: -1;
+  background:
+    radial-gradient(40% 50% at 15% 20%, rgba(37, 87, 232, 0.16), transparent 70%),
+    radial-gradient(35% 45% at 85% 15%, rgba(92, 130, 240, 0.14), transparent 70%),
+    radial-gradient(45% 55% at 50% 100%, rgba(11, 18, 32, 0.06), transparent 70%);
+  filter: blur(40px);
+}
+
+.mesh-bg-dark::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  z-index: -1;
+  background:
+    radial-gradient(40% 60% at 20% 10%, rgba(92, 130, 240, 0.35), transparent 70%),
+    radial-gradient(35% 50% at 90% 90%, rgba(37, 87, 232, 0.28), transparent 70%);
+  filter: blur(50px);
+}
+
+.text-gradient {
+  background: linear-gradient(100deg, var(--color-navy-900) 30%, var(--color-accent) 75%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

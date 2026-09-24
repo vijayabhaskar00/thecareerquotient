@@ -14,7 +14,7 @@ const NAV_LINKS = [
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-50 border-b border-navy-100 bg-offwhite/95 backdrop-blur">
+    <header className="glass-panel sticky top-0 z-50 shadow-soft">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <Link href="/" className="focus-ring rounded text-lg font-bold text-navy-900">
           TheCareerQuotient
@@ -37,7 +37,7 @@ export function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="focus-ring rounded px-1 py-2 text-navy-700 hover:text-navy-900"
+              className="focus-ring rounded-full px-3 py-1.5 text-navy-700 transition-colors duration-200 hover:bg-white hover:text-navy-900"
             >
               {link.label}
             </Link>
