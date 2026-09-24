@@ -15,7 +15,7 @@ interface ArticleCardProps {
 
 export function ArticleCard({ article }: ArticleCardProps) {
   return (
-    <article className="rounded-xl border border-navy-100 bg-white p-6">
+    <article className="rounded-xl border border-navy-100 bg-white p-6 shadow-sm transition-shadow duration-200 hover:shadow-md">
       <p className="text-xs font-semibold uppercase tracking-wide text-accent">{article.category}</p>
       <h3 className="mt-2 text-lg font-semibold text-navy-900">
         <Link href={`/insights/${article.slug}`} className="focus-ring rounded">

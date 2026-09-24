@@ -7,7 +7,7 @@ interface ServiceCardProps {
 
 export function ServiceCard({ service }: ServiceCardProps) {
   return (
-    <article className="flex flex-col rounded-xl border border-navy-100 bg-white p-6">
+    <article className="flex flex-col rounded-xl border border-navy-100 bg-white p-6 shadow-sm transition-shadow duration-200 hover:shadow-md">
       <h3 className="text-lg font-semibold text-navy-900">{service.name}</h3>
       <p className="mt-2 text-sm text-navy-700">{service.tagline}</p>
       <ul className="mt-4 flex-1 space-y-1 text-sm text-navy-700">
