@@ -10,5 +10,9 @@ export default defineConfig({
     environment: "jsdom",
     setupFiles: ["./vitest.setup.ts"],
     globals: true,
+    // Multi-field forms with Select interactions run noticeably slower
+    // under full-suite parallel load than in isolation; the 5s default
+    // was causing spurious timeouts, not real hangs.
+    testTimeout: 15000,
   },
 });

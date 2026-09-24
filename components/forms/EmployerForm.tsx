@@ -51,7 +51,13 @@ export function EmployerForm() {
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<EmployerFormValues>({ resolver: zodResolver(employerFormSchema) });
+  } = useForm<EmployerFormValues>({
+    resolver: zodResolver(employerFormSchema),
+    // Select fields must start controlled (a defined string), or Base UI's
+    // Select warns and breaks internal state when it later flips from
+    // uncontrolled (undefined) to controlled once a value is chosen.
+    defaultValues: { hiringNeed: "" as never, employmentType: "" as never },
+  });
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
   async function onSubmit(values: EmployerFormValues) {
