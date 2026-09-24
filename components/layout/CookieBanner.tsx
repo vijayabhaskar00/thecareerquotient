@@ -1,22 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 const CONSENT_KEY = "tcq_cookie_consent";
 
-function getInitialVisible(): boolean {
-  try {
-    if (typeof window === "undefined") return false;
-    return window.localStorage.getItem(CONSENT_KEY) === null;
-  } catch {
-    return false;
-  }
-}
-
 export function CookieBanner() {
-  const [visible, setVisible] = useState(getInitialVisible);
+  // Starts false to match the server-rendered markup; the real value is
+  // read post-mount so the client's first render doesn't diverge from
+  // the server's and trigger a hydration mismatch.
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    try {
+      setVisible(window.localStorage.getItem(CONSENT_KEY) === null);
+    } catch {
+      setVisible(false);
+    }
+  }, []);
 
   function respond(value: "accepted" | "declined") {
     try {

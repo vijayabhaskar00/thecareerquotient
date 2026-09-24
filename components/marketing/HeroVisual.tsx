@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Users, Zap, Heart } from "lucide-react";
 import { usePrefersReducedMotion } from "@/lib/hooks/usePrefersReducedMotion";
@@ -11,7 +12,18 @@ const BADGES = [
 ];
 
 export function HeroVisual() {
+  // Both the server and the client's first paint always render with
+  // animate=false, so hydration can never diff a computed motion style.
+  // Only after mount (a genuine post-hydration effect) do the badges
+  // start floating.
+  const [mounted, setMounted] = useState(false);
   const prefersReducedMotion = usePrefersReducedMotion();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const animate = mounted && !prefersReducedMotion;
 
   return (
     <div className="relative hidden h-96 lg:block" aria-hidden="true">
@@ -22,32 +34,21 @@ export function HeroVisual() {
         }}
       />
 
-      {BADGES.map(({ icon: Icon, label, className, delay }) =>
-        prefersReducedMotion ? (
-          <div
-            key={label}
-            className={`glass-panel absolute flex items-center gap-3 rounded-2xl px-4 py-3 shadow-soft-lg ${className}`}
-          >
-            <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
-              <Icon className="size-4" strokeWidth={1.75} />
-            </span>
-            <span className="text-sm font-semibold text-navy-900">{label}</span>
-          </div>
-        ) : (
-          <motion.div
-            key={label}
-            className={`glass-panel absolute flex items-center gap-3 rounded-2xl px-4 py-3 shadow-soft-lg ${className}`}
-            initial={false}
-            animate={{ y: [0, -12, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay }}
-          >
-            <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
-              <Icon className="size-4" strokeWidth={1.75} />
-            </span>
-            <span className="text-sm font-semibold text-navy-900">{label}</span>
-          </motion.div>
-        )
-      )}
+      {BADGES.map(({ icon: Icon, label, className, delay }) => (
+        <motion.div
+          key={label}
+          className={`glass-panel absolute flex items-center gap-3 rounded-2xl px-4 py-3 shadow-soft-lg ${className}`}
+          animate={animate ? { y: [0, -12, 0] } : { y: 0 }}
+          transition={
+            animate ? { duration: 5, repeat: Infinity, ease: "easeInOut", delay } : { duration: 0 }
+          }
+        >
+          <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
+            <Icon className="size-4" strokeWidth={1.75} />
+          </span>
+          <span className="text-sm font-semibold text-navy-900">{label}</span>
+        </motion.div>
+      ))}
     </div>
   );
 }
