@@ -19,9 +19,7 @@ export function Hero() {
           <p className="mt-2 text-sm text-navy-700">
             Tell us what you need. We&apos;ll help you find the people who can move your business forward.
           </p>
-          <Button asChild className="mt-4">
-            <Link href="/hire-talent">Hire Talent</Link>
-          </Button>
+          <Button className="mt-4" render={<Link href="/hire-talent">Hire Talent</Link>} />
         </div>
 
         <div className="rounded-xl border border-navy-100 bg-white p-6">
@@ -29,9 +27,7 @@ export function Hero() {
           <p className="mt-2 text-sm text-navy-700">
             Discover roles that match your skills, ambitions, and career goals.
           </p>
-          <Button asChild variant="outline" className="mt-4">
-            <Link href="/find-jobs">Find Jobs</Link>
-          </Button>
+          <Button variant="outline" className="mt-4" render={<Link href="/find-jobs">Find Jobs</Link>} />
         </div>
       </div>
     </section>

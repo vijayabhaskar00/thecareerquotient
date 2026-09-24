@@ -27,7 +27,7 @@ export const employerFormSchema = z.object({
   phone: z.string().trim().min(7, "Enter a valid phone number."),
   jobTitle: z.string().trim().min(2, "Enter your job title."),
   hiringNeed: z.enum(HIRING_NEEDS),
-  numberOfPositions: z.coerce.number().int().min(1, "Enter at least 1 position."),
+  numberOfPositions: z.number().int().min(1, "Enter at least 1 position."),
   location: z.string().trim().min(2, "Enter a location."),
   employmentType: z.enum(EMPLOYMENT_TYPES),
   message: z.string().trim().optional(),

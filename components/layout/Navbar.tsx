@@ -45,9 +45,7 @@ export function Navbar() {
         </nav>
 
         <div className="hidden md:block">
-          <Button asChild>
-            <Link href="/hire-talent">Hire Talent</Link>
-          </Button>
+          <Button render={<Link href="/hire-talent">Hire Talent</Link>} />
         </div>
 
         <MobileNavbar />

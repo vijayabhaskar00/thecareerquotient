@@ -45,11 +45,15 @@ export function MobileNavbar() {
               </Link>
             ))}
           </nav>
-          <Button asChild size="lg" className="mt-auto">
-            <Link href="/hire-talent" onClick={() => setOpen(false)}>
-              Hire Talent
-            </Link>
-          </Button>
+          <Button
+            size="lg"
+            className="mt-auto"
+            render={
+              <Link href="/hire-talent" onClick={() => setOpen(false)}>
+                Hire Talent
+              </Link>
+            }
+          />
         </DialogContent>
       </Dialog>
     </div>

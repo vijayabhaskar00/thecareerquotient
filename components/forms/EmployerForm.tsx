@@ -127,7 +127,12 @@ export function EmployerForm() {
       </Field>
 
       <Field id="employer-positions" label="Number of positions" error={errors.numberOfPositions?.message}>
-        <Input id="employer-positions" type="number" min={1} {...register("numberOfPositions")} />
+        <Input
+          id="employer-positions"
+          type="number"
+          min={1}
+          {...register("numberOfPositions", { valueAsNumber: true })}
+        />
       </Field>
       <Field id="employer-location" label="Location" error={errors.location?.message}>
         <Input id="employer-location" {...register("location")} />
