@@ -5,6 +5,7 @@ export interface SubmitResult {
   error?: string;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars -- stub payload, kept for the real API this will call later
 async function deliver<T>(_payload: T): Promise<SubmitResult> {
   await new Promise((resolve) => setTimeout(resolve, 400));
   return { success: true };

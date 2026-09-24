@@ -68,7 +68,7 @@ export function CandidateForm() {
   if (status === "success") {
     return (
       <div role="status" className="rounded-xl border border-green-200 bg-green-50 p-6 text-green-900">
-        Thanks - your resume was received. A recruiter will follow up if there's a fit.
+        Thanks - your resume was received. A recruiter will follow up if there&apos;s a fit.
       </div>
     );
   }

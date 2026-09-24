@@ -1,20 +1,22 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 const CONSENT_KEY = "tcq_cookie_consent";
 
-export function CookieBanner() {
-  const [visible, setVisible] = useState(false);
+function getInitialVisible(): boolean {
+  try {
+    if (typeof window === "undefined") return false;
+    return window.localStorage.getItem(CONSENT_KEY) === null;
+  } catch {
+    return false;
+  }
+}
 
-  useEffect(() => {
-    try {
-      setVisible(window.localStorage.getItem(CONSENT_KEY) === null);
-    } catch {
-      setVisible(false);
-    }
-  }, []);
+export function CookieBanner() {
+  const [visible, setVisible] = useState(getInitialVisible);
 
   function respond(value: "accepted" | "declined") {
     try {
@@ -36,9 +38,9 @@ export function CookieBanner() {
     >
       <p className="text-sm text-navy-700">
         We use cookies to improve your experience on this site. Read our{" "}
-        <a href="/cookie-policy" className="underline">
+        <Link href="/cookie-policy" className="underline">
           Cookie Policy
-        </a>{" "}
+        </Link>{" "}
         to learn more.
       </p>
       <div className="flex gap-2">

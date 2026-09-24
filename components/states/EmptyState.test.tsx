@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
+import Link from "next/link";
 import { EmptyState } from "./EmptyState";
 
 describe("EmptyState", () => {
@@ -8,7 +9,7 @@ describe("EmptyState", () => {
       <EmptyState
         heading="No articles matched your filter."
         description="Try a different category."
-        action={<a href="/insights">View all insights</a>}
+        action={<Link href="/insights">View all insights</Link>}
       />
     );
     expect(screen.getByRole("heading", { name: "No articles matched your filter." })).toBeInTheDocument();

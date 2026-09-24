@@ -16,6 +16,10 @@ export function Counter({ value, suffix = "", durationSeconds = 1.5 }: CounterPr
 
   useEffect(() => {
     if (prefersReducedMotion) {
+      // Snaps to the final value if the OS-level reduced-motion setting
+      // changes while mounted; the initial render already gets this right
+      // via the lazy useState above, so this only fires on a real toggle.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setDisplayValue(value);
       return;
     }

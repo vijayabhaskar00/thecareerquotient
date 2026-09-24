@@ -11,9 +11,9 @@ export function usePrefersReducedMotion(): boolean {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(getInitialPrefersReducedMotion);
 
   useEffect(() => {
+    // Initial value is already read synchronously via the lazy useState
+    // initializer above; this effect only needs to subscribe to changes.
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReducedMotion(mediaQuery.matches);
-
     const handleChange = (event: MediaQueryListEvent) => setPrefersReducedMotion(event.matches);
     mediaQuery.addEventListener("change", handleChange);
     return () => mediaQuery.removeEventListener("change", handleChange);
