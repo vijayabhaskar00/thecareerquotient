@@ -9,6 +9,7 @@ import { ProcessTimeline } from "@/components/marketing/ProcessTimeline";
 import { ArticleCard } from "@/components/marketing/ArticleCard";
 import { CTASection } from "@/components/marketing/CTASection";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
+import { StaggerGrid, StaggerItem } from "@/components/motion/StaggerGrid";
 import { services } from "@/content/services/data";
 import { industries } from "@/content/industries/data";
 import { getAllArticles } from "@/lib/content/insights";
@@ -80,11 +81,16 @@ export default function HomePage() {
         <ScrollReveal>
           <h2 className="text-display-md font-bold text-navy-900">Workforce Solutions Built Around Your Needs</h2>
         </ScrollReveal>
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <StaggerGrid className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
-            <ServiceCard key={service.slug} service={service} featured={index === 0} />
+            <StaggerItem
+              key={service.slug}
+              className={index === 0 ? "h-full sm:col-span-2 sm:row-span-2" : "h-full"}
+            >
+              <ServiceCard service={service} featured={index === 0} />
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGrid>
       </section>
 
       <section className="bg-white py-16">
@@ -92,20 +98,19 @@ export default function HomePage() {
           <ScrollReveal>
             <h2 className="text-display-md font-bold text-navy-900">Recruitment Should Feel Human.</h2>
           </ScrollReveal>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <StaggerGrid className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {WHY_POINTS.map((point) => (
-              <div
-                key={point.title}
-                className="rounded-2xl border border-navy-100 bg-offwhite p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-soft"
-              >
-                <div className="flex size-10 items-center justify-center rounded-xl bg-accent/10 text-accent">
-                  <point.icon className="size-5" strokeWidth={1.75} />
+              <StaggerItem key={point.title} className="h-full">
+                <div className="h-full rounded-2xl border border-navy-100 bg-offwhite p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-soft">
+                  <div className="flex size-10 items-center justify-center rounded-xl bg-accent/10 text-accent">
+                    <point.icon className="size-5" strokeWidth={1.75} />
+                  </div>
+                  <h3 className="mt-4 font-semibold text-navy-900">{point.title}</h3>
+                  <p className="mt-2 text-sm text-navy-700">{point.description}</p>
                 </div>
-                <h3 className="mt-4 font-semibold text-navy-900">{point.title}</h3>
-                <p className="mt-2 text-sm text-navy-700">{point.description}</p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGrid>
         </div>
       </section>
 
@@ -129,11 +134,13 @@ export default function HomePage() {
               View all industries -&gt;
             </Link>
           </div>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <StaggerGrid className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {featuredIndustries.map((industry) => (
-              <IndustryCard key={industry.slug} industry={industry} />
+              <StaggerItem key={industry.slug} className="h-full">
+                <IndustryCard industry={industry} />
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGrid>
         </div>
       </section>
 
@@ -159,11 +166,13 @@ export default function HomePage() {
               View all insights -&gt;
             </Link>
           </div>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <StaggerGrid className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {latestArticles.map((article) => (
-              <ArticleCard key={article.slug} article={article} />
+              <StaggerItem key={article.slug} className="h-full">
+                <ArticleCard article={article} />
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGrid>
         </section>
       )}
 

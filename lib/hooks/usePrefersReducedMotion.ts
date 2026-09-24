@@ -2,18 +2,15 @@
 
 import { useEffect, useState } from "react";
 
-function getInitialPrefersReducedMotion(): boolean {
-  if (typeof window === "undefined") return false;
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-}
-
 export function usePrefersReducedMotion(): boolean {
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(getInitialPrefersReducedMotion);
+  // Starts false to match the server-rendered markup; the real value is
+  // applied post-mount so the client's first render doesn't diverge from
+  // the server's and trigger a hydration mismatch.
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
-    // Initial value is already read synchronously via the lazy useState
-    // initializer above; this effect only needs to subscribe to changes.
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mediaQuery.matches);
     const handleChange = (event: MediaQueryListEvent) => setPrefersReducedMotion(event.matches);
     mediaQuery.addEventListener("change", handleChange);
     return () => mediaQuery.removeEventListener("change", handleChange);

@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import type { Article } from "@/lib/content/insights";
 import { ArticleCard } from "@/components/marketing/ArticleCard";
 import { EmptyState } from "@/components/states/EmptyState";
+import { StaggerGrid, StaggerItem } from "@/components/motion/StaggerGrid";
 
 interface InsightsListProps {
   articles: Article[];
@@ -53,11 +54,13 @@ export function InsightsList({ articles, categories }: InsightsListProps) {
           />
         </div>
       ) : (
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <StaggerGrid className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((article) => (
-            <ArticleCard key={article.slug} article={article} />
+            <StaggerItem key={article.slug} className="h-full">
+              <ArticleCard article={article} />
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGrid>
       )}
     </>
   );

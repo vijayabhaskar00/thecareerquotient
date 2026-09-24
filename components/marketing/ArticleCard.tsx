@@ -15,7 +15,7 @@ interface ArticleCardProps {
 
 export function ArticleCard({ article }: ArticleCardProps) {
   return (
-    <article className="flex flex-col rounded-3xl border border-navy-100 bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-soft-lg">
+    <article className="flex h-full flex-col rounded-3xl border border-navy-100 bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-soft-lg">
       <span className="inline-flex w-fit items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-accent">
         {article.category}
       </span>

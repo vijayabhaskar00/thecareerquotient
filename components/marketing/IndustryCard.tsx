@@ -21,7 +21,7 @@ export function IndustryCard({ industry }: IndustryCardProps) {
   const Icon = INDUSTRY_ICONS[industry.slug] ?? Building2;
 
   return (
-    <article className="group flex flex-col rounded-3xl border border-navy-100 bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-soft-lg">
+    <article className="group flex h-full flex-col rounded-3xl border border-navy-100 bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-soft-lg">
       <div className="flex size-11 items-center justify-center rounded-2xl bg-accent/10 text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-white">
         <Icon className="size-5" strokeWidth={1.75} />
       </div>

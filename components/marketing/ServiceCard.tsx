@@ -31,8 +31,8 @@ export function ServiceCard({ service, featured = false }: ServiceCardProps) {
 
   return (
     <article
-      className={`group flex flex-col rounded-3xl border border-navy-100 bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-navy-100 hover:shadow-soft-lg ${
-        featured ? "sm:col-span-2 sm:row-span-2 sm:p-8" : ""
+      className={`group flex h-full flex-col rounded-3xl border border-navy-100 bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-navy-100 hover:shadow-soft-lg ${
+        featured ? "sm:p-8" : ""
       }`}
     >
       <div

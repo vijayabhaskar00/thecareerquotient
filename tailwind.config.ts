@@ -9,16 +9,16 @@ const config: Config = {
     extend: {
       colors: {
         navy: {
-          DEFAULT: "#0B1220",
-          50: "#F4F6FA",
-          100: "#E4E9F2",
-          700: "#1B2740",
-          900: "#0B1220",
+          DEFAULT: "#1C1917",
+          50: "#F5F3EF",
+          100: "#E7E2DB",
+          700: "#44403C",
+          900: "#1C1917",
         },
         offwhite: "#FAF9F6",
         accent: {
-          DEFAULT: "#2557E8",
-          light: "#5C82F0",
+          DEFAULT: "#B45309",
+          light: "#D97706",
         },
       },
       fontFamily: {
