@@ -14,7 +14,7 @@ export function Hero() {
               Human-first hiring, built for how work actually happens.
             </span>
             <h1 className="mt-6 text-display-lg font-bold text-navy-900">
-              Smarter Talent. Stronger Teams. <span className="text-gradient">Better Careers.</span>
+              Smarter Talent. Stronger Teams. <span className="text-accent">Better Careers.</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-navy-700">
               TheCareerQuotient connects ambitious organizations with exceptional professionals through flexible

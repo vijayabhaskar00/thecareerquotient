@@ -120,12 +120,6 @@ a {
   filter: blur(50px);
 }
 
-.text-gradient {
-  background: linear-gradient(100deg, var(--color-navy-900) 30%, var(--color-accent) 75%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
