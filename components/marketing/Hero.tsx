@@ -2,23 +2,28 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
+import { HeroVisual } from "@/components/marketing/HeroVisual";
 
 export function Hero() {
   return (
     <section className="mesh-bg relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <ScrollReveal>
-          <span className="inline-flex items-center rounded-full border border-navy-100 bg-white/80 px-4 py-1.5 text-sm font-medium text-navy-700 shadow-soft">
-            Human-first hiring, built for how work actually happens.
-          </span>
-          <h1 className="mt-6 max-w-4xl text-display-lg font-bold text-navy-900">
-            Smarter Talent. Stronger Teams. <span className="text-gradient">Better Careers.</span>
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg text-navy-700">
-            TheCareerQuotient connects ambitious organizations with exceptional professionals through flexible
-            staffing, permanent hiring, executive search, and workforce solutions.
-          </p>
-        </ScrollReveal>
+        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+          <ScrollReveal>
+            <span className="inline-flex items-center rounded-full border border-navy-100 bg-white/80 px-4 py-1.5 text-sm font-medium text-navy-700 shadow-soft">
+              Human-first hiring, built for how work actually happens.
+            </span>
+            <h1 className="mt-6 text-display-lg font-bold text-navy-900">
+              Smarter Talent. Stronger Teams. <span className="text-gradient">Better Careers.</span>
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg text-navy-700">
+              TheCareerQuotient connects ambitious organizations with exceptional professionals through flexible
+              staffing, permanent hiring, executive search, and workforce solutions.
+            </p>
+          </ScrollReveal>
+
+          <HeroVisual />
+        </div>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-5">
           <div className="glass-panel flex flex-col justify-between rounded-3xl p-8 shadow-soft-lg sm:col-span-3">
