@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/tmp/**)",
+      "Bash(npx create-next-app@latest nextjs-scaffold --typescript --tailwind --eslint --app --src-dir=false --import-alias \"@/*\" --no-turbopack --skip-install)"
+    ]
+  }
+}
