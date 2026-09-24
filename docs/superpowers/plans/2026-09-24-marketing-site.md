@@ -3039,7 +3039,7 @@ describe("ContactForm", () => {
     await userEvent.click(screen.getByLabelText("Employer"));
     await userEvent.type(screen.getByLabelText("Message"), "We need to hire three engineers this quarter.");
     await userEvent.click(screen.getByRole("button", { name: "Send Message" }));
-    expect(await screen.findByRole("alert", { name: /couldn't send/i })).toBeInTheDocument();
+    expect(await screen.findByRole("alert")).toHaveTextContent(/couldn't send/i);
   });
 });
 ```
@@ -3252,7 +3252,7 @@ describe("EmployerForm", () => {
     render(<EmployerForm />);
     await fillRequiredFields(user);
     await user.click(screen.getByRole("button", { name: "Talk to a Talent Expert" }));
-    expect(await screen.findByRole("alert", { name: /couldn't submit/i })).toBeInTheDocument();
+    expect(await screen.findByRole("alert")).toHaveTextContent(/couldn't submit/i);
   });
 });
 ```
@@ -3458,7 +3458,7 @@ git commit -m "feat: add EmployerForm for hire-talent lead capture"
 **Interfaces:**
 - Consumes: `candidateFormSchema`, `EMPLOYMENT_TYPES`, `validateResumeFile`, `MAX_RESUME_SIZE_BYTES` (Task 13), `submitCandidateResume` (Task 14).
 - Produces: `<CandidateForm />` — consumed by Task 25 (`/find-jobs` page).
-- Addresses Review Focus #2 (invalid/oversized resume rejected client-side before submit).
+- Addresses Review Focus #2 (invalid/oversized resume rejected client-side before submit) and Review Focus #1 (failed submission shows visible error UI).
 
 - [ ] **Step 1: Write failing tests**
 
@@ -3525,6 +3525,17 @@ describe("CandidateForm", () => {
     await user.upload(screen.getByLabelText(/Resume/), file);
     await user.click(screen.getByRole("button", { name: "Submit Your Resume" }));
     expect(await screen.findByRole("status")).toHaveTextContent(/resume was received/);
+  });
+
+  it("shows an error state when submission fails (Review Focus #1)", async () => {
+    vi.mocked(submitFormModule.submitCandidateResume).mockResolvedValue({ success: false });
+    const user = userEvent.setup();
+    render(<CandidateForm />);
+    await fillCandidateFields(user);
+    const file = new File(["content"], "resume.pdf", { type: "application/pdf" });
+    await user.upload(screen.getByLabelText(/Resume/), file);
+    await user.click(screen.getByRole("button", { name: "Submit Your Resume" }));
+    expect(await screen.findByRole("alert")).toHaveTextContent(/couldn't submit your resume/i);
   });
 });
 ```
@@ -3714,7 +3725,7 @@ export function CandidateForm() {
 - [ ] **Step 4: Run test to verify it passes**
 
 Run: `npm test -- components/forms/CandidateForm.test.tsx`
-Expected: PASS (4 tests).
+Expected: PASS (5 tests).
 
 - [ ] **Step 5: Commit**
 
