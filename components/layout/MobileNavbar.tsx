@@ -22,12 +22,12 @@ export function MobileNavbar() {
     <div className="md:hidden">
       <button
         type="button"
-        className="focus-ring flex h-11 w-11 items-center justify-center rounded"
+        className="focus-ring flex size-10 items-center justify-center rounded-full text-navy-900 transition-colors duration-200 hover:bg-white"
         aria-expanded={open}
         aria-label={open ? "Close menu" : "Open menu"}
         onClick={() => setOpen(true)}
       >
-        <Menu aria-hidden="true" />
+        <Menu aria-hidden="true" className="size-5" />
       </button>
 
       <Dialog open={open} onOpenChange={setOpen}>
@@ -38,7 +38,7 @@ export function MobileNavbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="focus-ring rounded py-2 text-lg text-navy-900"
+                className="focus-ring rounded-xl px-3 py-2.5 text-lg text-navy-900 transition-colors duration-200 hover:bg-navy-50 active:bg-navy-100"
                 onClick={() => setOpen(false)}
               >
                 {link.label}

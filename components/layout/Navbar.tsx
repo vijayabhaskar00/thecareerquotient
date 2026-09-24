@@ -14,13 +14,13 @@ const NAV_LINKS = [
 
 export function Navbar() {
   return (
-    <header className="glass-panel sticky top-0 z-50 shadow-soft">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <Link href="/" className="focus-ring rounded text-lg font-bold text-navy-900">
+    <header className="sticky top-0 z-50 px-3 pt-3 sm:px-4 sm:pt-4">
+      <div className="glass-panel mx-auto flex max-w-6xl items-center justify-between rounded-full py-2 pl-5 pr-2 shadow-soft-lg">
+        <Link href="/" className="focus-ring rounded text-base font-bold text-navy-900">
           TheCareerQuotient
         </Link>
 
-        <nav className="hidden items-center gap-6 md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
           <MegaMenu
             label="Solutions"
             basePath="/services"
@@ -37,7 +37,7 @@ export function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="focus-ring rounded-full px-3 py-1.5 text-navy-700 transition-colors duration-200 hover:bg-white hover:text-navy-900"
+              className="focus-ring rounded-full px-3 py-1.5 text-sm text-navy-700 transition-colors duration-200 hover:bg-white hover:text-navy-900"
             >
               {link.label}
             </Link>
