@@ -37,6 +37,7 @@ export function HeroVisual() {
           <motion.div
             key={label}
             className={`glass-panel absolute flex items-center gap-3 rounded-2xl px-4 py-3 shadow-soft-lg ${className}`}
+            initial={false}
             animate={{ y: [0, -12, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay }}
           >
