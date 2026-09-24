@@ -4,6 +4,8 @@ import { industries } from "@/content/industries/data";
 import { getAllArticles } from "@/lib/content/insights";
 import { SITE_URL } from "@/lib/seo/metadata";
 
+export const dynamic = "force-static";
+
 const STATIC_PATHS = [
   "/",
   "/services",
