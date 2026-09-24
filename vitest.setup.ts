@@ -1,4 +1,14 @@
 import "@testing-library/jest-dom/vitest";
+import { vi } from "vitest";
+
+// Mock next/font/google for tests
+vi.mock("next/font/google", () => ({
+  Plus_Jakarta_Sans: (config: object) => ({
+    ...config,
+    variable: "__variable_plus_jakarta_sans__c2e4d3",
+    className: "plus_jakarta_sans__c2e4d3",
+  }),
+}));
 
 if (typeof window !== "undefined") {
   if (!window.matchMedia) {
