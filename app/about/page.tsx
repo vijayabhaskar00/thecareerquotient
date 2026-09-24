@@ -33,12 +33,15 @@ export default function AboutPage() {
 
       <section className="bg-white py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-display-md font-bold text-navy-900">What We Stand For</h2>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {values.map((value) => (
-              <div key={value.title} className="rounded-xl border border-navy-100 p-6">
-                <h3 className="font-semibold text-navy-900">{value.title}</h3>
-                <p className="mt-2 text-sm text-navy-700">{value.description}</p>
+          <h2 className="max-w-2xl text-display-md font-bold text-navy-900">What We Stand For</h2>
+          <div className="mt-10 grid gap-x-12 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+            {values.map((value, index) => (
+              <div key={value.title} className="flex gap-5 border-t border-navy-100 pt-5">
+                <span className="font-mono text-sm text-accent">{String(index + 1).padStart(2, "0")}</span>
+                <div>
+                  <h3 className="font-semibold text-navy-900">{value.title}</h3>
+                  <p className="mt-1.5 text-sm text-navy-700">{value.description}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -57,7 +60,10 @@ export default function AboutPage() {
         ) : (
           <div className="mt-8 grid gap-6 sm:grid-cols-3">
             {team.map((member) => (
-              <div key={member.name} className="rounded-xl border border-navy-100 p-6">
+              <div
+                key={member.name}
+                className="rounded-2xl border border-navy-100 bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-soft-lg"
+              >
                 <h3 className="font-semibold text-navy-900">{member.name}</h3>
                 <p className="text-sm text-navy-700">{member.role}</p>
                 <p className="mt-2 text-sm text-navy-700">{member.bio}</p>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Check } from "lucide-react";
 import { services } from "@/content/services/data";
 import { industries } from "@/content/industries/data";
 import { buildMetadata } from "@/lib/seo/metadata";
@@ -52,9 +53,13 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
       <p className="mt-6 max-w-3xl text-navy-800">{service.summary}</p>
 
       <h2 className="mt-10 text-xl font-semibold text-navy-900">What&apos;s included</h2>
-      <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+      <ul className="mt-4 grid gap-3 sm:grid-cols-2">
         {service.features.map((feature) => (
-          <li key={feature} className="rounded-lg border border-navy-100 p-4 text-sm text-navy-700">
+          <li
+            key={feature}
+            className="flex items-start gap-3 rounded-xl bg-muted p-4 text-sm text-navy-700"
+          >
+            <Check className="mt-0.5 size-4 shrink-0 text-accent" strokeWidth={2.5} />
             {feature}
           </li>
         ))}

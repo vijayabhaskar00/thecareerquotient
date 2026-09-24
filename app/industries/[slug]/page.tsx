@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { AlertCircle } from "lucide-react";
 import { industries } from "@/content/industries/data";
 import { services } from "@/content/services/data";
 import { buildMetadata } from "@/lib/seo/metadata";
@@ -53,9 +54,10 @@ export default async function IndustryDetailPage({ params }: IndustryDetailPageP
       <p className="mt-6 max-w-3xl text-navy-800">{industry.intro}</p>
 
       <h2 className="mt-10 text-xl font-semibold text-navy-900">Workforce challenges we solve</h2>
-      <ul className="mt-4 space-y-2">
+      <ul className="mt-4 space-y-3">
         {industry.challenges.map((challenge) => (
-          <li key={challenge} className="rounded-lg border border-navy-100 p-4 text-sm text-navy-700">
+          <li key={challenge} className="flex items-start gap-3 rounded-xl bg-muted p-4 text-sm text-navy-700">
+            <AlertCircle className="mt-0.5 size-4 shrink-0 text-accent" strokeWidth={2} />
             {challenge}
           </li>
         ))}
