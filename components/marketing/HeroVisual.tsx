@@ -49,7 +49,7 @@ export function HeroVisual() {
       />
 
       <div
-        className="glass-panel absolute left-4 top-6 w-80 overflow-hidden rounded-3xl p-6 shadow-soft-lg"
+        className="glass-panel absolute left-4 top-6 w-80 overflow-hidden rounded-3xl p-6 shadow-soft-lg backdrop-blur-[20px]"
         role="status"
         aria-live="polite"
       >
@@ -108,12 +108,12 @@ export function HeroVisual() {
       </div>
 
       {prefersReducedMotion ? (
-        <div className="glass-panel absolute bottom-8 right-2 flex items-center gap-3 rounded-2xl px-5 py-4 shadow-soft-lg">
+        <div className="glass-panel absolute bottom-8 right-2 flex items-center gap-3 rounded-2xl px-5 py-4 shadow-soft-lg backdrop-blur-[20px]">
           {statCard}
         </div>
       ) : (
         <motion.div
-          className="glass-panel absolute bottom-8 right-2 flex items-center gap-3 rounded-2xl px-5 py-4 shadow-soft-lg"
+          className="glass-panel absolute bottom-8 right-2 flex items-center gap-3 rounded-2xl px-5 py-4 shadow-soft-lg backdrop-blur-[20px]"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-40px" }}

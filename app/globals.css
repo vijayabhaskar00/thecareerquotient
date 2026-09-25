@@ -78,17 +78,21 @@ a {
   box-shadow: 0 2px 4px rgba(11, 18, 32, 0.04), 0 24px 48px -12px rgba(11, 18, 32, 0.18);
 }
 
+/* blur lives on each element as a Tailwind backdrop-blur-[..] utility, not here:
+   the CSS build strips a hand-written unprefixed backdrop-filter, leaving only
+   -webkit-, which real browsers ignore -- Tailwind's own utility emits both. */
 .glass-panel {
   background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.glass-panel-nav {
+  background: rgba(255, 255, 255, 0.92);
   border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
 .glass-panel-dark {
   background: rgba(250, 249, 246, 0.08);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(250, 249, 246, 0.14);
 }
 

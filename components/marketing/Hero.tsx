@@ -26,7 +26,7 @@ export function Hero() {
         </div>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-5">
-          <div className="glass-panel flex flex-col justify-between rounded-3xl p-8 shadow-soft-lg sm:col-span-3">
+          <div className="glass-panel flex flex-col justify-between rounded-3xl p-8 shadow-soft-lg backdrop-blur-[20px] sm:col-span-3">
             <div>
               <h2 className="text-2xl font-semibold text-navy-900">Build Your Team</h2>
               <p className="mt-3 max-w-sm text-navy-700">
@@ -36,7 +36,7 @@ export function Hero() {
             <Button className="mt-6 w-fit" render={<Link href="/hire-talent">Hire Talent</Link>} />
           </div>
 
-          <div className="glass-panel flex flex-col justify-between rounded-3xl p-8 shadow-soft sm:col-span-2">
+          <div className="glass-panel flex flex-col justify-between rounded-3xl p-8 shadow-soft backdrop-blur-[20px] sm:col-span-2">
             <div>
               <h2 className="text-xl font-semibold text-navy-900">Find Your Next Opportunity</h2>
               <p className="mt-3 text-sm text-navy-700">
