@@ -39,7 +39,7 @@ export function MegaMenu({ label, basePath, overviewHref, items }: MegaMenuProps
         <div
           id={menuId}
           role="menu"
-          className="absolute left-0 top-full z-40 mt-3 grid w-80 grid-cols-1 gap-1 rounded-2xl border border-navy-100 bg-white p-4 shadow-soft-lg"
+          className="absolute left-0 top-full z-40 mt-3 grid w-80 grid-cols-1 gap-1 rounded-2xl border border-navy-100 bg-white p-4 shadow-soft-lg before:absolute before:inset-x-0 before:-top-3 before:h-3 before:content-['']"
         >
           <Link
             href={overviewHref}

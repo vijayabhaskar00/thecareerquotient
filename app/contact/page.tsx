@@ -15,7 +15,7 @@ export default function ContactPage() {
       <p className="mt-4 text-lg text-navy-700">
         Whether you&apos;re building a team or looking for your next role, tell us a bit about what you need.
       </p>
-      <div className="mt-10">
+      <div className="mt-10 rounded-3xl border border-navy-100 bg-white p-6 shadow-soft sm:p-10">
         <ContactForm />
       </div>
     </div>

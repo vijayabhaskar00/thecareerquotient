@@ -156,7 +156,7 @@ export function CandidateForm() {
           type="file"
           accept=".pdf,.doc,.docx"
           onChange={handleResumeChange}
-          className="mt-1 block w-full text-sm"
+          className="focus-ring mt-1 block w-full cursor-pointer rounded-xl border border-navy-100 text-sm text-navy-700 file:mr-4 file:cursor-pointer file:rounded-full file:border-0 file:bg-accent/10 file:px-4 file:py-2.5 file:text-sm file:font-semibold file:text-accent hover:file:bg-accent/20"
         />
         {resumeError && (
           <p role="alert" className="mt-1 text-sm text-red-700">
