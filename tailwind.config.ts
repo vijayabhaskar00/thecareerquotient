@@ -26,8 +26,8 @@ const config: Config = {
       },
       fontSize: {
         "display-lg": [
-          "clamp(2.5rem, 5vw + 1rem, 5rem)",
-          { lineHeight: "1.05", letterSpacing: "-0.02em" },
+          "clamp(2.25rem, 3.4vw + 1rem, 4rem)",
+          { lineHeight: "1.1", letterSpacing: "-0.02em" },
         ],
         "display-md": [
           "clamp(2rem, 3vw + 1rem, 3.25rem)",

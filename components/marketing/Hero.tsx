@@ -8,12 +8,12 @@ export function Hero() {
   return (
     <section className="mesh-bg relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+        <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-16">
           <ScrollReveal>
             <span className="inline-flex items-center rounded-full border border-navy-100 bg-white/80 px-4 py-1.5 text-sm font-medium text-navy-700 shadow-soft">
               Human-first hiring, built for how work actually happens.
             </span>
-            <h1 className="mt-6 text-display-lg font-bold text-navy-900">
+            <h1 className="mt-6 text-balance text-display-lg font-bold text-navy-900">
               Smarter Talent. Stronger Teams. <span className="text-accent">Better Careers.</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-navy-700">
