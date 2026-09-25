@@ -48,7 +48,10 @@ export function Navbar() {
           <Button render={<Link href="/hire-talent">Hire Talent</Link>} />
         </div>
 
-        <MobileNavbar />
+        <MobileNavbar
+          services={services.map((s) => ({ slug: s.slug, name: s.name }))}
+          industries={industries.map((i) => ({ slug: i.slug, name: i.name }))}
+        />
       </div>
     </header>
   );
