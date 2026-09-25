@@ -79,10 +79,7 @@ export default function HomePage() {
         </ScrollReveal>
         <StaggerGrid className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
-            <StaggerItem
-              key={service.slug}
-              className={index === 0 ? "h-full sm:col-span-2 sm:row-span-2" : "h-full"}
-            >
+            <StaggerItem key={service.slug} className={index === 0 ? "h-full sm:col-span-2" : "h-full"}>
               <ServiceCard service={service} featured={index === 0} />
             </StaggerItem>
           ))}
