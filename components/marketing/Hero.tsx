@@ -6,7 +6,7 @@ import { HeroVisual } from "@/components/marketing/HeroVisual";
 
 export function Hero() {
   return (
-    <section className="mesh-bg relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8">
+    <section className="mesh-bg mesh-bg-contained relative px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-16">
           <ScrollReveal>

@@ -109,6 +109,10 @@ a {
   filter: blur(40px);
 }
 
+.mesh-bg-contained::before {
+  inset: -20% 0;
+}
+
 .mesh-bg-dark::before {
   content: "";
   position: absolute;
