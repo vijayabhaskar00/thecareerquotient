@@ -39,7 +39,7 @@ export function HeroVisual() {
   );
 
   return (
-    <div className="relative hidden h-[26rem] lg:block">
+    <div className="relative lg:h-[26rem]">
       <div
         className="absolute left-1/2 top-1/2 size-80 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-60 blur-3xl"
         style={{
@@ -49,7 +49,7 @@ export function HeroVisual() {
       />
 
       <div
-        className="glass-panel absolute left-4 top-6 w-80 overflow-hidden rounded-3xl p-6 shadow-soft-lg backdrop-blur-[20px]"
+        className="glass-panel relative w-full overflow-hidden rounded-3xl p-6 shadow-soft-lg backdrop-blur-[20px] lg:absolute lg:left-4 lg:top-6 lg:w-80"
         role="status"
         aria-live="polite"
       >
@@ -108,12 +108,12 @@ export function HeroVisual() {
       </div>
 
       {prefersReducedMotion ? (
-        <div className="glass-panel absolute bottom-8 right-2 flex items-center gap-3 rounded-2xl px-5 py-4 shadow-soft-lg backdrop-blur-[20px]">
+        <div className="glass-panel relative mt-4 flex w-fit items-center gap-3 rounded-2xl px-5 py-4 shadow-soft-lg backdrop-blur-[20px] lg:absolute lg:bottom-8 lg:right-2 lg:mt-0">
           {statCard}
         </div>
       ) : (
         <motion.div
-          className="glass-panel absolute bottom-8 right-2 flex items-center gap-3 rounded-2xl px-5 py-4 shadow-soft-lg backdrop-blur-[20px]"
+          className="glass-panel relative mt-4 flex w-fit items-center gap-3 rounded-2xl px-5 py-4 shadow-soft-lg backdrop-blur-[20px] lg:absolute lg:bottom-8 lg:right-2 lg:mt-0"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-40px" }}
