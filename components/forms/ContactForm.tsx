@@ -44,7 +44,7 @@ export function ContactForm() {
         <ErrorState description="We couldn't send your message. Please try again." onRetry={() => setStatus("idle")} />
       )}
 
-      <div>
+      <div className="space-y-1.5">
         <Label htmlFor="contact-name">Full name</Label>
         <Input id="contact-name" {...register("name")} aria-invalid={!!errors.name} />
         {errors.name && (
@@ -54,7 +54,7 @@ export function ContactForm() {
         )}
       </div>
 
-      <div>
+      <div className="space-y-1.5">
         <Label htmlFor="contact-email">Email</Label>
         <Input id="contact-email" type="email" {...register("email")} aria-invalid={!!errors.email} />
         {errors.email && (
@@ -66,7 +66,7 @@ export function ContactForm() {
 
       <fieldset>
         <legend className="text-sm font-medium text-navy-900">I am a...</legend>
-        <div className="mt-2 flex gap-2">
+        <div className="mt-1.5 flex gap-2">
           <label className="has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-accent has-[:focus-visible]:ring-offset-2 cursor-pointer rounded-full border border-navy-100 px-5 py-2.5 text-sm font-medium text-navy-700 transition-colors duration-200 hover:border-accent/50">
             <input type="radio" value="employer" {...register("audience")} className="sr-only" />
             Employer
@@ -83,7 +83,7 @@ export function ContactForm() {
         )}
       </fieldset>
 
-      <div>
+      <div className="space-y-1.5">
         <Label htmlFor="contact-message">Message</Label>
         <Textarea id="contact-message" rows={5} {...register("message")} aria-invalid={!!errors.message} />
         {errors.message && (

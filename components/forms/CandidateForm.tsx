@@ -82,7 +82,7 @@ export function CandidateForm() {
         />
       )}
 
-      <div>
+      <div className="space-y-1.5">
         <Label htmlFor="candidate-name">Full name</Label>
         <Input id="candidate-name" {...register("name")} />
         {errors.name && (
@@ -92,7 +92,7 @@ export function CandidateForm() {
         )}
       </div>
 
-      <div>
+      <div className="space-y-1.5">
         <Label htmlFor="candidate-email">Email</Label>
         <Input id="candidate-email" type="email" {...register("email")} />
         {errors.email && (
@@ -102,7 +102,7 @@ export function CandidateForm() {
         )}
       </div>
 
-      <div>
+      <div className="space-y-1.5">
         <Label htmlFor="candidate-phone">Phone</Label>
         <Input id="candidate-phone" type="tel" {...register("phone")} />
         {errors.phone && (
@@ -112,7 +112,7 @@ export function CandidateForm() {
         )}
       </div>
 
-      <div>
+      <div className="space-y-1.5">
         <Label htmlFor="candidate-location">Preferred location</Label>
         <Input id="candidate-location" {...register("preferredLocation")} />
         {errors.preferredLocation && (
@@ -122,7 +122,7 @@ export function CandidateForm() {
         )}
       </div>
 
-      <div>
+      <div className="space-y-1.5">
         <Label htmlFor="candidate-employment-type">Employment type</Label>
         <Controller
           control={control}
@@ -149,14 +149,14 @@ export function CandidateForm() {
         )}
       </div>
 
-      <div>
+      <div className="space-y-1.5">
         <Label htmlFor="candidate-resume">Resume (PDF or Word, up to 5MB)</Label>
         <input
           id="candidate-resume"
           type="file"
           accept=".pdf,.doc,.docx"
           onChange={handleResumeChange}
-          className="focus-ring mt-1 block w-full cursor-pointer rounded-xl border border-navy-100 text-sm text-navy-700 file:mr-4 file:cursor-pointer file:rounded-full file:border-0 file:bg-accent/10 file:px-4 file:py-2.5 file:text-sm file:font-semibold file:text-accent hover:file:bg-accent/20"
+          className="focus-ring block w-full cursor-pointer rounded-xl border border-navy-100 text-sm text-navy-700 file:mr-4 file:cursor-pointer file:rounded-full file:border-0 file:bg-accent/10 file:px-4 file:py-2.5 file:text-sm file:font-semibold file:text-accent hover:file:bg-accent/20"
         />
         {resumeError && (
           <p role="alert" className="mt-1 text-sm text-red-700">
