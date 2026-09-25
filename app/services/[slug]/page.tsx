@@ -48,7 +48,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
           { href: `/services/${slug}`, label: service.name },
         ]}
       />
-      <h1 className="mt-6 text-display-md font-bold text-navy-900">{service.name}</h1>
+      <h1 className="mt-6 text-display-lg font-bold text-navy-900">{service.name}</h1>
       <p className="mt-2 text-lg text-navy-700">{service.tagline}</p>
       <p className="mt-6 max-w-3xl text-navy-800">{service.summary}</p>
 

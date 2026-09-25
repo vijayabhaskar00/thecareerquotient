@@ -16,7 +16,7 @@ export default function InsightsPage() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-      <h1 className="text-display-md font-bold text-navy-900">Career Insights</h1>
+      <h1 className="text-display-lg font-bold text-navy-900">Career Insights</h1>
 
       <Suspense>
         <InsightsList articles={articles} categories={categories} />

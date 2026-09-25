@@ -14,7 +14,7 @@ export default function IndustriesPage() {
   return (
     <div>
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <h1 className="text-display-md font-bold text-navy-900">Industries We Serve</h1>
+        <h1 className="text-display-lg font-bold text-navy-900">Industries We Serve</h1>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {industries.map((industry) => (
             <IndustryCard key={industry.slug} industry={industry} />

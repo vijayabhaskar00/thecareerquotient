@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Hero } from "@/components/marketing/Hero";
 import { StatsSection } from "@/components/marketing/StatsSection";
 import { ServiceCard } from "@/components/marketing/ServiceCard";
@@ -7,6 +6,7 @@ import { IndustryCard } from "@/components/marketing/IndustryCard";
 import { ProcessTimeline } from "@/components/marketing/ProcessTimeline";
 import { ArticleCard } from "@/components/marketing/ArticleCard";
 import { CTASection } from "@/components/marketing/CTASection";
+import { SectionHeader } from "@/components/marketing/SectionHeader";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { StaggerGrid, StaggerItem } from "@/components/motion/StaggerGrid";
 import { services } from "@/content/services/data";
@@ -75,7 +75,7 @@ export default function HomePage() {
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <ScrollReveal>
-          <h2 className="text-display-md font-bold text-navy-900">Workforce Solutions Built Around Your Needs</h2>
+          <SectionHeader eyebrow="Our Solutions" title="Workforce Solutions Built Around Your Needs" />
         </ScrollReveal>
         <StaggerGrid className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
@@ -89,7 +89,7 @@ export default function HomePage() {
       <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <h2 className="max-w-2xl text-display-md font-bold text-navy-900">Recruitment Should Feel Human.</h2>
+            <SectionHeader eyebrow="Why Us" title="Recruitment Should Feel Human." />
           </ScrollReveal>
           <StaggerGrid className="mt-10 grid gap-x-12 gap-y-8 sm:grid-cols-2">
             {WHY_POINTS.map((point, index) => (
@@ -108,12 +108,12 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <h2 className="text-display-md font-bold text-navy-900">How It Works for Employers</h2>
+        <SectionHeader eyebrow="For Employers" title="How It Works for Employers" />
         <div className="mt-8">
           <ProcessTimeline steps={EMPLOYER_STEPS} />
         </div>
 
-        <h2 className="mt-16 text-display-md font-bold text-navy-900">How It Works for Candidates</h2>
+        <SectionHeader eyebrow="For Candidates" title="How It Works for Candidates" className="mt-16" />
         <div className="mt-8">
           <ProcessTimeline steps={CANDIDATE_STEPS} />
         </div>
@@ -121,12 +121,11 @@ export default function HomePage() {
 
       <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
-            <h2 className="text-display-md font-bold text-navy-900">Industries We Serve</h2>
-            <Link href="/industries" className="font-semibold text-accent">
-              View all industries -&gt;
-            </Link>
-          </div>
+          <SectionHeader
+            eyebrow="Industries"
+            title="Industries We Serve"
+            action={{ label: "View all industries", href: "/industries" }}
+          />
           <StaggerGrid className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {featuredIndustries.map((industry) => (
               <StaggerItem key={industry.slug} className="h-full">
@@ -153,12 +152,11 @@ export default function HomePage() {
 
       {latestArticles.length > 0 && (
         <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
-            <h2 className="text-display-md font-bold text-navy-900">Career Insights</h2>
-            <Link href="/insights" className="font-semibold text-accent">
-              View all insights -&gt;
-            </Link>
-          </div>
+          <SectionHeader
+            eyebrow="Resources"
+            title="Career Insights"
+            action={{ label: "View all insights", href: "/insights" }}
+          />
           <StaggerGrid className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {latestArticles.map((article) => (
               <StaggerItem key={article.slug} className="h-full">

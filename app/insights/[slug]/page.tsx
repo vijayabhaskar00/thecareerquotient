@@ -53,7 +53,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         ]}
       />
       <p className="mt-6 text-xs font-semibold uppercase tracking-wide text-accent">{article.category}</p>
-      <h1 className="mt-2 text-display-md font-bold text-navy-900">{article.title}</h1>
+      <h1 className="mt-2 text-display-lg font-bold text-navy-900">{article.title}</h1>
       <p className="mt-2 text-sm text-navy-700">
         {article.author} - {article.date} - {article.readingTime}
       </p>

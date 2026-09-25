@@ -50,7 +50,7 @@ export default async function IndustryDetailPage({ params }: IndustryDetailPageP
           { href: `/industries/${slug}`, label: industry.name },
         ]}
       />
-      <h1 className="mt-6 text-display-md font-bold text-navy-900">{industry.name}</h1>
+      <h1 className="mt-6 text-display-lg font-bold text-navy-900">{industry.name}</h1>
       <p className="mt-6 max-w-3xl text-navy-800">{industry.intro}</p>
 
       <h2 className="mt-10 text-xl font-semibold text-navy-900">Workforce challenges we solve</h2>

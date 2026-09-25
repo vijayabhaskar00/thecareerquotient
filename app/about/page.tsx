@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { values } from "@/content/values";
 import { team } from "@/content/team";
 import { CTASection } from "@/components/marketing/CTASection";
+import { SectionHeader } from "@/components/marketing/SectionHeader";
 import { EmptyState } from "@/components/states/EmptyState";
 import { buildMetadata } from "@/lib/seo/metadata";
 
@@ -16,7 +17,7 @@ export default function AboutPage() {
   return (
     <div>
       <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
-        <h1 className="text-display-md font-bold text-navy-900">Talent Is Personal.</h1>
+        <h1 className="text-display-lg font-bold text-navy-900">Talent Is Personal.</h1>
         <p className="mt-6 text-lg text-navy-700">
           TheCareerQuotient exists to make hiring and career development more human, more intelligent, and more
           effective. We built this company because too much of staffing treats people like line items - a resume
@@ -33,7 +34,7 @@ export default function AboutPage() {
 
       <section className="bg-white py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="max-w-2xl text-display-md font-bold text-navy-900">What We Stand For</h2>
+          <SectionHeader eyebrow="Our Values" title="What We Stand For" />
           <div className="mt-10 grid gap-x-12 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
             {values.map((value, index) => (
               <div key={value.title} className="flex gap-5 border-t border-navy-100 pt-5">
@@ -49,7 +50,7 @@ export default function AboutPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-        <h2 className="text-display-md font-bold text-navy-900">Leadership</h2>
+        <SectionHeader eyebrow="Our Team" title="Leadership" />
         {team.length === 0 ? (
           <div className="mt-8">
             <EmptyState

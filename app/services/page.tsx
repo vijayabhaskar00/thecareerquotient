@@ -14,7 +14,7 @@ export default function ServicesPage() {
   return (
     <div>
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <h1 className="text-display-md font-bold text-navy-900">Workforce Solutions Built Around Your Needs</h1>
+        <h1 className="text-display-lg font-bold text-navy-900">Workforce Solutions Built Around Your Needs</h1>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
             <ServiceCard key={service.slug} service={service} />
