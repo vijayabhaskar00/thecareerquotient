@@ -14,6 +14,9 @@ vi.mock("next/font/google", () => ({
 }));
 
 
+// The 3D viewer needs WebGL; tests only exercise the static poster.
+vi.mock("@google/model-viewer", () => ({}));
+
 if (typeof window !== "undefined") {
   if (!window.matchMedia) {
     window.matchMedia = (query: string) => ({

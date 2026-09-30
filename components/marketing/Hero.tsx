@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { HeroVisual } from "@/components/marketing/HeroVisual";
+import { HeroModel } from "@/components/marketing/HeroModel";
 
 export function Hero() {
   return (
@@ -56,7 +57,7 @@ export function Hero() {
                   Tell us what you need. We&apos;ll help you find the people who can move your business forward.
                 </p>
               </div>
-              <ArrowUpRight className="size-12 text-accent" strokeWidth={1.5} aria-hidden="true" />
+              <HeroModel className="mx-auto aspect-square w-full max-w-[17rem]" />
             </div>
             <div className="flex flex-col justify-between gap-10 rounded-xl bg-accent p-7 text-ink">
               <div>
