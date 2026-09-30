@@ -8,9 +8,11 @@ const POSTER = "/models/career-match-poster.webp";
 const ALT =
   "A 3D sculpture of an open ring with an orange sphere sliding into its opening, a symbol for a candidate matching a role.";
 
+/** Playback speed of the dot's dock/release loop (the source clip is 4s). */
+const TIME_SCALE = 2.4;
 /** Sway of the camera either side of straight-on, in degrees. */
-const SWAY_DEG = 14;
-const SWAY_PERIOD_MS = 8000;
+const SWAY_DEG = 22;
+const SWAY_PERIOD_MS = 3200;
 /** Fixed framing: ring plus the dot's travel path, centred between them. */
 const ORBIT_RADIUS = "7.5m";
 const TARGET = "0.3m 0m 0m";
@@ -42,13 +44,15 @@ export function HeroModel({ className }: { className?: string }) {
     };
   }, [prefersReducedMotion]);
 
-  // Gentle camera sway, paused while the tab is hidden.
+  // Camera sway, paused while the tab is hidden.
   useEffect(() => {
     if (!ready) return;
     let frame = 0;
     const start = performance.now();
     const tick = (now: number) => {
-      const el = viewerRef.current as (HTMLElement & { cameraOrbit?: string }) | null;
+      const el = viewerRef.current as (HTMLElement & { cameraOrbit?: string; timeScale?: number }) | null;
+      // model-viewer resets timeScale when the model finishes loading, so keep asserting it.
+      if (el && el.timeScale !== TIME_SCALE) el.timeScale = TIME_SCALE;
       if (el && !document.hidden) {
         const angle = Math.sin(((now - start) / SWAY_PERIOD_MS) * Math.PI * 2) * SWAY_DEG;
         el.cameraOrbit = `${angle.toFixed(2)}deg 90deg ${ORBIT_RADIUS}`;

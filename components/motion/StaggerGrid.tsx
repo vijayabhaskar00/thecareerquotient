@@ -7,13 +7,13 @@ import { usePrefersReducedMotion } from "@/lib/hooks/usePrefersReducedMotion";
 const container: Variants = {
   hidden: {},
   show: {
-    transition: { staggerChildren: 0.08 },
+    transition: { staggerChildren: 0.045 },
   },
 };
 
 const item: Variants = {
-  hidden: { opacity: 0, y: 20, scale: 0.97 },
-  show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.4, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 14, scale: 0.98 },
+  show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.26, ease: "easeOut" } },
 };
 
 interface StaggerGridProps {
@@ -34,7 +34,7 @@ export function StaggerGrid({ children, className }: StaggerGridProps) {
       variants={container}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: true, margin: "-40px" }}
     >
       {children}
     </motion.div>

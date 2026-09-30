@@ -20,10 +20,10 @@ export function ScrollReveal({ children, className, delay = 0 }: ScrollRevealPro
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.5, delay }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.3, ease: "easeOut", delay }}
     >
       {children}
     </motion.div>
