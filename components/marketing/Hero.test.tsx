@@ -11,4 +11,12 @@ describe("Hero", () => {
     expect(screen.queryByRole("searchbox")).not.toBeInTheDocument();
     expect(screen.queryByRole("textbox")).not.toBeInTheDocument();
   });
+
+  it("keeps the animated headline as one readable sentence", () => {
+    render(<Hero />);
+    const h1 = screen.getByRole("heading", { level: 1 });
+    // Split into animated word/dot spans, but the text must stay intact for screen readers and crawlers.
+    expect(h1).toHaveTextContent(/^Smarter Talent\. Stronger Teams\. Better Careers\.$/);
+    expect(h1.textContent).toBe("Smarter Talent. Stronger Teams. Better Careers.");
+  });
 });
