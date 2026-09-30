@@ -12,19 +12,19 @@ export default function TermsPage() {
   return (
     <LegalPageLayout title="Terms of Service" lastUpdated="Pending counsel review">
       <section>
-        <h2 className="text-lg font-semibold text-navy-900">Acceptance of Terms</h2>
+        <h2 className="text-lg font-semibold text-ink">Acceptance of Terms</h2>
         <p className="mt-2 text-sm">This section will describe what using this site means you agree to.</p>
       </section>
       <section>
-        <h2 className="text-lg font-semibold text-navy-900">Use of the Site</h2>
+        <h2 className="text-lg font-semibold text-ink">Use of the Site</h2>
         <p className="mt-2 text-sm">This section will describe permitted and prohibited uses of this site.</p>
       </section>
       <section>
-        <h2 className="text-lg font-semibold text-navy-900">Limitation of Liability</h2>
+        <h2 className="text-lg font-semibold text-ink">Limitation of Liability</h2>
         <p className="mt-2 text-sm">This section will describe the limits of TheCareerQuotient&apos;s liability.</p>
       </section>
       <section>
-        <h2 className="text-lg font-semibold text-navy-900">Changes to These Terms</h2>
+        <h2 className="text-lg font-semibold text-ink">Changes to These Terms</h2>
         <p className="mt-2 text-sm">This section will describe how and when these terms may be updated.</p>
       </section>
     </LegalPageLayout>

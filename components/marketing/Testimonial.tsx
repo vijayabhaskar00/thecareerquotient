@@ -12,9 +12,9 @@ export function Testimonial({ testimonial }: TestimonialProps) {
   if (!testimonial) return null;
 
   return (
-    <figure className="rounded-xl border border-navy-100 bg-white p-8">
-      <blockquote className="text-lg text-navy-900">&ldquo;{testimonial.quote}&rdquo;</blockquote>
-      <figcaption className="mt-4 text-sm text-navy-700">
+    <figure className="rounded-xl border border-line bg-surface p-8">
+      <blockquote className="text-lg text-ink">&ldquo;{testimonial.quote}&rdquo;</blockquote>
+      <figcaption className="mt-4 text-sm text-ink-soft">
         {testimonial.author}, {testimonial.role}
       </figcaption>
     </figure>

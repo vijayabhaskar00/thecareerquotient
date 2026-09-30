@@ -48,16 +48,16 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
           { href: `/services/${slug}`, label: service.name },
         ]}
       />
-      <h1 className="mt-6 text-display-lg font-bold text-navy-900">{service.name}</h1>
-      <p className="mt-2 text-lg text-navy-700">{service.tagline}</p>
-      <p className="mt-6 max-w-3xl text-navy-800">{service.summary}</p>
+      <h1 className="mt-6 text-display-lg font-bold text-ink">{service.name}</h1>
+      <p className="mt-2 text-lg text-ink-soft">{service.tagline}</p>
+      <p className="mt-6 max-w-3xl text-ink">{service.summary}</p>
 
-      <h2 className="mt-10 text-xl font-semibold text-navy-900">What&apos;s included</h2>
+      <h2 className="mt-10 text-xl font-semibold text-ink">What&apos;s included</h2>
       <ul className="mt-4 grid gap-3 sm:grid-cols-2">
         {service.features.map((feature) => (
           <li
             key={feature}
-            className="flex items-start gap-3 rounded-xl bg-muted p-4 text-sm text-navy-700"
+            className="flex items-start gap-3 rounded-xl bg-muted p-4 text-sm text-ink-soft"
           >
             <Check className="mt-0.5 size-4 shrink-0 text-accent" strokeWidth={2.5} />
             {feature}
@@ -67,7 +67,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
 
       {relatedIndustries.length > 0 && (
         <>
-          <h2 className="mt-10 text-xl font-semibold text-navy-900">Industries we apply this to</h2>
+          <h2 className="mt-10 text-xl font-semibold text-ink">Industries we apply this to</h2>
           <div className="mt-4 grid gap-6 sm:grid-cols-3">
             {relatedIndustries.map((industry) => (
               <IndustryCard key={industry.slug} industry={industry} />

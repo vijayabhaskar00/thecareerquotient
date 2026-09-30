@@ -17,31 +17,31 @@ export default function AboutPage() {
   return (
     <div>
       <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
-        <h1 className="text-display-lg font-bold text-navy-900">Talent Is Personal.</h1>
-        <p className="mt-6 text-lg text-navy-700">
+        <h1 className="text-display-lg font-bold text-ink">Talent Is Personal.</h1>
+        <p className="mt-6 text-lg text-ink-soft">
           TheCareerQuotient exists to make hiring and career development more human, more intelligent, and more
           effective. We built this company because too much of staffing treats people like line items - a resume
           matched to a keyword, a requisition closed and forgotten. We think hiring works better when it starts from
           the assumption that both sides of the table are making one of the more consequential decisions of their
           year.
         </p>
-        <p className="mt-4 text-lg text-navy-700">
+        <p className="mt-4 text-lg text-ink-soft">
           That means recruiters who ask why a role exists before they ask what it requires. It means candidates who
           get real feedback, not silence. And it means we stay in the relationship after the placement is made,
           because that&apos;s when you actually find out if it worked.
         </p>
       </div>
 
-      <section className="bg-white py-16">
+      <section className="bg-surface py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <SectionHeader eyebrow="Our Values" title="What We Stand For" />
           <div className="mt-10 grid gap-x-12 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
             {values.map((value, index) => (
-              <div key={value.title} className="flex gap-5 border-t border-navy-100 pt-5">
+              <div key={value.title} className="flex gap-5 border-t border-line pt-5">
                 <span className="font-mono text-sm text-accent">{String(index + 1).padStart(2, "0")}</span>
                 <div>
-                  <h3 className="font-semibold text-navy-900">{value.title}</h3>
-                  <p className="mt-1.5 text-sm text-navy-700">{value.description}</p>
+                  <h3 className="font-semibold text-ink">{value.title}</h3>
+                  <p className="mt-1.5 text-sm text-ink-soft">{value.description}</p>
                 </div>
               </div>
             ))}
@@ -63,11 +63,11 @@ export default function AboutPage() {
             {team.map((member) => (
               <div
                 key={member.name}
-                className="rounded-2xl border border-navy-100 bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-soft-lg"
+                className="rounded-2xl border border-line bg-surface p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-soft-lg"
               >
-                <h3 className="font-semibold text-navy-900">{member.name}</h3>
-                <p className="text-sm text-navy-700">{member.role}</p>
-                <p className="mt-2 text-sm text-navy-700">{member.bio}</p>
+                <h3 className="font-semibold text-ink">{member.name}</h3>
+                <p className="text-sm text-ink-soft">{member.role}</p>
+                <p className="mt-2 text-sm text-ink-soft">{member.bio}</p>
               </div>
             ))}
           </div>

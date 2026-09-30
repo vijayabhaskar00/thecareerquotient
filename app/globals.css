@@ -2,28 +2,28 @@
 @config "../tailwind.config.ts";
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 
-  --radius: 0.625rem;
-  --background: #faf9f6;
-  --foreground: #1c1917;
-  --card: #ffffff;
-  --card-foreground: #1c1917;
-  --popover: #ffffff;
-  --popover-foreground: #1c1917;
-  --primary: #1c1917;
-  --primary-foreground: #faf9f6;
-  --secondary: #e7e2db;
-  --secondary-foreground: #1c1917;
-  --muted: #f5f3ef;
-  --muted-foreground: #44403c;
-  --accent: #b45309;
-  --accent-foreground: #ffffff;
-  --destructive: #dc2626;
-  --destructive-foreground: #ffffff;
-  --border: #e7e2db;
-  --input: #e7e2db;
-  --ring: #b45309;
+  --radius: 0.75rem;
+  --background: #07080c;
+  --foreground: #f4f2ec;
+  --card: #0e0f15;
+  --card-foreground: #f4f2ec;
+  --popover: #12131a;
+  --popover-foreground: #f4f2ec;
+  --primary: #c6f432;
+  --primary-foreground: #0a0b0f;
+  --secondary: rgba(255, 255, 255, 0.09);
+  --secondary-foreground: #f4f2ec;
+  --muted: rgba(255, 255, 255, 0.05);
+  --muted-foreground: #a7a9b4;
+  --accent: #c6f432;
+  --accent-foreground: #0a0b0f;
+  --destructive: #f87171;
+  --destructive-foreground: #0a0b0f;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.14);
+  --ring: #c6f432;
 }
 
 @theme inline {
@@ -39,8 +39,6 @@
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
@@ -48,14 +46,33 @@
   --color-ring: var(--ring);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: light;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  @apply bg-offwhite text-navy-900 antialiased;
+  @apply bg-background font-sans text-ink antialiased;
+  position: relative;
+}
+
+/* film grain over the whole page */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: var(--accent);
+  color: #0a0b0f;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
 }
 
 a {
@@ -67,35 +84,40 @@ a {
 }
 
 .focus-ring:focus-visible {
-  @apply ring-2 ring-accent ring-offset-2 ring-offset-offwhite;
+  @apply ring-2 ring-accent ring-offset-2 ring-offset-background;
 }
 
 .shadow-soft {
-  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 8px 24px -8px rgba(11, 18, 32, 0.12);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 12px 32px -12px rgba(0, 0, 0, 0.6);
 }
 
 .shadow-soft-lg {
-  box-shadow: 0 2px 4px rgba(11, 18, 32, 0.04), 0 24px 48px -12px rgba(11, 18, 32, 0.18);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.07) inset, 0 32px 64px -24px rgba(0, 0, 0, 0.8);
+}
+
+.shadow-glow {
+  box-shadow: 0 0 0 1px rgba(198, 244, 50, 0.35), 0 10px 50px -8px rgba(198, 244, 50, 0.45);
 }
 
 /* blur lives on each element as a Tailwind backdrop-blur-[..] utility, not here:
    the CSS build strips a hand-written unprefixed backdrop-filter, leaving only
    -webkit-, which real browsers ignore -- Tailwind's own utility emits both. */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .glass-panel-nav {
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(14, 15, 21, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .glass-panel-dark {
-  background: rgba(250, 249, 246, 0.08);
-  border: 1px solid rgba(250, 249, 246, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* aurora: drifting coloured light behind sections */
 .mesh-bg {
   position: relative;
   isolation: isolate;
@@ -104,30 +126,87 @@ a {
 .mesh-bg::before {
   content: "";
   position: absolute;
-  inset: -20%;
+  inset: -10% -10% 0;
   z-index: -1;
   background:
-    radial-gradient(40% 50% at 15% 20%, rgba(180, 83, 9, 0.14), transparent 70%),
-    radial-gradient(35% 45% at 85% 15%, rgba(217, 119, 6, 0.12), transparent 70%),
-    radial-gradient(45% 55% at 50% 100%, rgba(28, 25, 23, 0.06), transparent 70%);
-  filter: blur(40px);
+    radial-gradient(38% 45% at 12% 18%, rgba(139, 92, 246, 0.42), transparent 70%),
+    radial-gradient(34% 42% at 88% 12%, rgba(34, 211, 238, 0.26), transparent 70%),
+    radial-gradient(40% 40% at 60% 95%, rgba(198, 244, 50, 0.13), transparent 70%);
+  filter: blur(48px);
+  animation: aurora-drift 18s ease-in-out infinite alternate;
 }
 
 .mesh-bg-contained::before {
-  inset: -20% 0;
+  inset: -20% 0 0;
 }
 
 .mesh-bg-dark::before {
-  content: "";
-  position: absolute;
   inset: -20%;
-  z-index: -1;
   background:
-    radial-gradient(40% 60% at 20% 10%, rgba(217, 119, 6, 0.3), transparent 70%),
-    radial-gradient(35% 50% at 90% 90%, rgba(180, 83, 9, 0.25), transparent 70%);
+    radial-gradient(40% 60% at 15% 0%, rgba(198, 244, 50, 0.3), transparent 70%),
+    radial-gradient(40% 55% at 95% 100%, rgba(139, 92, 246, 0.4), transparent 70%);
   filter: blur(50px);
 }
 
+.grid-lines {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%);
+}
+
+.text-gradient {
+  background: linear-gradient(100deg, #c6f432 0%, #22d3ee 55%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* spotlight border that follows the cursor (set --mx/--my from JS) */
+.spotlight {
+  position: relative;
+}
+
+.spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 0%), rgba(198, 244, 50, 0.13), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.spotlight:hover::before {
+  opacity: 1;
+}
+
+@keyframes aurora-drift {
+  from { transform: translate3d(-3%, -2%, 0) scale(1); }
+  to { transform: translate3d(3%, 3%, 0) scale(1.08); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-marquee { animation: marquee 38s linear infinite; }
+.animate-orbit { animation: orbit 40s linear infinite; }
+.animate-orbit-rev { animation: orbit 56s linear infinite reverse; }
+.animate-float { animation: float-y 6s ease-in-out infinite; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

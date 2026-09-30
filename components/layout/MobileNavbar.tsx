@@ -31,7 +31,7 @@ export function MobileNavbar({ services = [], industries = [] }: MobileNavbarPro
     <div className="md:hidden">
       <button
         type="button"
-        className="focus-ring flex size-10 items-center justify-center rounded-full text-navy-900 transition-colors duration-200 hover:bg-white"
+        className="focus-ring flex size-10 items-center justify-center rounded-full text-ink transition-colors duration-200 hover:bg-line-soft"
         aria-expanded={open}
         aria-label={open ? "Close menu" : "Open menu"}
         onClick={() => setOpen(true)}
@@ -45,14 +45,14 @@ export function MobileNavbar({ services = [], industries = [] }: MobileNavbarPro
           <nav className="flex flex-col" aria-label="Mobile">
             <Accordion multiple>
               <AccordionItem value="solutions">
-                <AccordionTrigger className="px-3 py-2.5 text-lg font-normal text-navy-900 hover:no-underline">
+                <AccordionTrigger className="px-3 py-2.5 text-lg font-normal text-ink hover:no-underline">
                   Solutions
                 </AccordionTrigger>
                 <AccordionContent>
                   <div className="flex flex-col gap-1 pl-3">
                     <Link
                       href="/services"
-                      className="focus-ring rounded-xl px-3 py-2 font-semibold text-navy-900 hover:bg-navy-50"
+                      className="focus-ring rounded-xl px-3 py-2 font-semibold text-ink hover:bg-line-soft"
                       onClick={() => setOpen(false)}
                     >
                       All Solutions
@@ -61,7 +61,7 @@ export function MobileNavbar({ services = [], industries = [] }: MobileNavbarPro
                       <Link
                         key={service.slug}
                         href={`/services/${service.slug}`}
-                        className="focus-ring rounded-xl px-3 py-2 text-navy-700 hover:bg-navy-50"
+                        className="focus-ring rounded-xl px-3 py-2 text-ink-soft hover:bg-line-soft"
                         onClick={() => setOpen(false)}
                       >
                         {service.name}
@@ -72,14 +72,14 @@ export function MobileNavbar({ services = [], industries = [] }: MobileNavbarPro
               </AccordionItem>
 
               <AccordionItem value="industries">
-                <AccordionTrigger className="px-3 py-2.5 text-lg font-normal text-navy-900 hover:no-underline">
+                <AccordionTrigger className="px-3 py-2.5 text-lg font-normal text-ink hover:no-underline">
                   Industries
                 </AccordionTrigger>
                 <AccordionContent>
                   <div className="flex flex-col gap-1 pl-3">
                     <Link
                       href="/industries"
-                      className="focus-ring rounded-xl px-3 py-2 font-semibold text-navy-900 hover:bg-navy-50"
+                      className="focus-ring rounded-xl px-3 py-2 font-semibold text-ink hover:bg-line-soft"
                       onClick={() => setOpen(false)}
                     >
                       All Industries
@@ -88,7 +88,7 @@ export function MobileNavbar({ services = [], industries = [] }: MobileNavbarPro
                       <Link
                         key={industry.slug}
                         href={`/industries/${industry.slug}`}
-                        className="focus-ring rounded-xl px-3 py-2 text-navy-700 hover:bg-navy-50"
+                        className="focus-ring rounded-xl px-3 py-2 text-ink-soft hover:bg-line-soft"
                         onClick={() => setOpen(false)}
                       >
                         {industry.name}
@@ -103,7 +103,7 @@ export function MobileNavbar({ services = [], industries = [] }: MobileNavbarPro
               <Link
                 key={link.href}
                 href={link.href}
-                className="focus-ring rounded-xl px-3 py-2.5 text-lg text-navy-900 transition-colors duration-200 hover:bg-navy-50 active:bg-navy-100"
+                className="focus-ring rounded-xl px-3 py-2.5 text-lg text-ink transition-colors duration-200 hover:bg-line-soft active:bg-line"
                 onClick={() => setOpen(false)}
               >
                 {link.label}

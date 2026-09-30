@@ -50,23 +50,23 @@ export default async function IndustryDetailPage({ params }: IndustryDetailPageP
           { href: `/industries/${slug}`, label: industry.name },
         ]}
       />
-      <h1 className="mt-6 text-display-lg font-bold text-navy-900">{industry.name}</h1>
-      <p className="mt-6 max-w-3xl text-navy-800">{industry.intro}</p>
+      <h1 className="mt-6 text-display-lg font-bold text-ink">{industry.name}</h1>
+      <p className="mt-6 max-w-3xl text-ink">{industry.intro}</p>
 
-      <h2 className="mt-10 text-xl font-semibold text-navy-900">Workforce challenges we solve</h2>
+      <h2 className="mt-10 text-xl font-semibold text-ink">Workforce challenges we solve</h2>
       <ul className="mt-4 space-y-3">
         {industry.challenges.map((challenge) => (
-          <li key={challenge} className="flex items-start gap-3 rounded-xl bg-muted p-4 text-sm text-navy-700">
+          <li key={challenge} className="flex items-start gap-3 rounded-xl bg-muted p-4 text-sm text-ink-soft">
             <AlertCircle className="mt-0.5 size-4 shrink-0 text-accent" strokeWidth={2} />
             {challenge}
           </li>
         ))}
       </ul>
 
-      <h2 className="mt-10 text-xl font-semibold text-navy-900">Roles we recruit</h2>
+      <h2 className="mt-10 text-xl font-semibold text-ink">Roles we recruit</h2>
       <ul className="mt-4 flex flex-wrap gap-2">
         {industry.roles.map((role) => (
-          <li key={role} className="rounded-full border border-navy-100 px-4 py-2 text-sm text-navy-700">
+          <li key={role} className="rounded-full border border-line px-4 py-2 text-sm text-ink-soft">
             {role}
           </li>
         ))}
@@ -74,7 +74,7 @@ export default async function IndustryDetailPage({ params }: IndustryDetailPageP
 
       {relatedServices.length > 0 && (
         <>
-          <h2 className="mt-10 text-xl font-semibold text-navy-900">Services available</h2>
+          <h2 className="mt-10 text-xl font-semibold text-ink">Services available</h2>
           <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {relatedServices.map((service) => (
               <ServiceCard key={service.slug} service={service} />
@@ -83,7 +83,7 @@ export default async function IndustryDetailPage({ params }: IndustryDetailPageP
         </>
       )}
 
-      <h2 className="mt-10 text-xl font-semibold text-navy-900">Frequently asked questions</h2>
+      <h2 className="mt-10 text-xl font-semibold text-ink">Frequently asked questions</h2>
       <div className="mt-4">
         <FAQAccordion items={industry.faqs} />
       </div>

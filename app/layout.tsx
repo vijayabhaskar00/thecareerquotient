@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { fontSans } from "@/lib/fonts";
+import { fontSans, fontDisplay, fontSerif } from "@/lib/fonts";
 import "./globals.css";
 import { AppShell } from "@/components/layout/AppShell";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={fontSans.variable}>
+    <html lang="en" className={`${fontSans.variable} ${fontDisplay.variable} ${fontSerif.variable}`}>
       <body>
         <JsonLd data={organizationJsonLd()} />
         <JsonLd data={websiteJsonLd()} />

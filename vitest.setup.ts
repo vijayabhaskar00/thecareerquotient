@@ -2,13 +2,18 @@ import "@testing-library/jest-dom/vitest";
 import { vi } from "vitest";
 
 // Mock next/font/google for tests
+const mockFont = (name: string) => (config: object) => ({
+  ...config,
+  variable: `__variable_${name}__c2e4d3`,
+  className: `${name}__c2e4d3`,
+});
+
 vi.mock("next/font/google", () => ({
-  Plus_Jakarta_Sans: (config: object) => ({
-    ...config,
-    variable: "__variable_plus_jakarta_sans__c2e4d3",
-    className: "plus_jakarta_sans__c2e4d3",
-  }),
+  Inter: mockFont("inter"),
+  Bricolage_Grotesque: mockFont("bricolage"),
+  Instrument_Serif: mockFont("instrument_serif"),
 }));
+
 
 if (typeof window !== "undefined") {
   if (!window.matchMedia) {

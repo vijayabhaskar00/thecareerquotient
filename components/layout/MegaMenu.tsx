@@ -24,7 +24,7 @@ export function MegaMenu({ label, basePath, overviewHref, items }: MegaMenuProps
     <div className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
       <button
         type="button"
-        className="focus-ring flex items-center gap-1 rounded-full px-3 py-1.5 text-sm text-navy-700 transition-colors duration-200 hover:bg-white hover:text-navy-900"
+        className="focus-ring flex items-center gap-1 rounded-full px-3 py-1.5 text-sm text-ink-soft transition-colors duration-200 hover:bg-line-soft hover:text-ink"
         aria-haspopup="true"
         aria-expanded={open}
         aria-controls={menuId}
@@ -39,12 +39,12 @@ export function MegaMenu({ label, basePath, overviewHref, items }: MegaMenuProps
         <div
           id={menuId}
           role="menu"
-          className="absolute left-0 top-full z-40 mt-3 grid w-80 grid-cols-1 gap-1 rounded-2xl border border-navy-100 bg-white p-4 shadow-soft-lg before:absolute before:inset-x-0 before:-top-3 before:h-3 before:content-['']"
+          className="absolute left-0 top-full z-40 mt-3 grid w-80 grid-cols-1 gap-1 rounded-2xl border border-line bg-surface p-4 shadow-soft-lg before:absolute before:inset-x-0 before:-top-3 before:h-3 before:content-['']"
         >
           <Link
             href={overviewHref}
             role="menuitem"
-            className="focus-ring rounded-lg px-3 py-2 font-semibold text-navy-900"
+            className="focus-ring rounded-lg px-3 py-2 font-semibold text-ink"
             onClick={() => setOpen(false)}
           >
             All {label}
@@ -54,7 +54,7 @@ export function MegaMenu({ label, basePath, overviewHref, items }: MegaMenuProps
               key={item.slug}
               href={`${basePath}/${item.slug}`}
               role="menuitem"
-              className="focus-ring rounded-lg px-3 py-2 text-sm text-navy-700 hover:bg-navy-50"
+              className="focus-ring rounded-lg px-3 py-2 text-sm text-ink-soft hover:bg-line-soft"
               onClick={() => setOpen(false)}
             >
               {item.name}

@@ -23,7 +23,7 @@ export function InsightsList({ articles, categories }: InsightsListProps) {
         <Link
           href="/insights"
           className={`rounded-full border px-4 py-2 text-sm ${
-            !category ? "border-navy-900 bg-navy-900 text-white" : "border-navy-100 text-navy-700"
+            !category ? "border-ink bg-surface-2 text-white" : "border-line text-ink-soft"
           }`}
         >
           All
@@ -33,7 +33,7 @@ export function InsightsList({ articles, categories }: InsightsListProps) {
             key={cat}
             href={`/insights?category=${encodeURIComponent(cat)}`}
             className={`rounded-full border px-4 py-2 text-sm ${
-              category === cat ? "border-navy-900 bg-navy-900 text-white" : "border-navy-100 text-navy-700"
+              category === cat ? "border-ink bg-surface-2 text-white" : "border-line text-ink-soft"
             }`}
           >
             {cat}

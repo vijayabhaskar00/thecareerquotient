@@ -12,15 +12,15 @@ export default function EmployerTermsPage() {
   return (
     <LegalPageLayout title="Employer Terms" lastUpdated="Pending counsel review">
       <section>
-        <h2 className="text-lg font-semibold text-navy-900">Scope of Services</h2>
+        <h2 className="text-lg font-semibold text-ink">Scope of Services</h2>
         <p className="mt-2 text-sm">This section will describe the staffing services covered by these terms.</p>
       </section>
       <section>
-        <h2 className="text-lg font-semibold text-navy-900">Payment Terms</h2>
+        <h2 className="text-lg font-semibold text-ink">Payment Terms</h2>
         <p className="mt-2 text-sm">This section will describe fees, invoicing, and payment timelines.</p>
       </section>
       <section>
-        <h2 className="text-lg font-semibold text-navy-900">Confidentiality</h2>
+        <h2 className="text-lg font-semibold text-ink">Confidentiality</h2>
         <p className="mt-2 text-sm">This section will describe how confidential client and candidate information is handled.</p>
       </section>
     </LegalPageLayout>
