@@ -15,7 +15,7 @@ export default function FindJobsPage() {
       <h1 className="text-display-lg font-bold text-ink">Your next opportunity starts here.</h1>
       <p className="mt-4 text-lg text-ink-soft">
         Submit your resume and a recruiter will reach out if there&apos;s a fit. In the meantime, explore our{" "}
-        <Link href="/insights" className="font-semibold text-accent">
+        <Link href="/insights" className="font-semibold text-accent-ink">
           career resources
         </Link>
         .

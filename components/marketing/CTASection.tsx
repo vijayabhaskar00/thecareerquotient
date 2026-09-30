@@ -2,28 +2,51 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
+import { cn } from "@/lib/utils";
+
+type CTATone = "forest" | "orange" | "paper";
 
 interface CTASectionProps {
   heading: string;
   description: string;
   ctaLabel: string;
   ctaHref: string;
+  tone?: CTATone;
 }
 
-export function CTASection({ heading, description, ctaLabel, ctaHref }: CTASectionProps) {
+const TONES: Record<CTATone, { panel: string; body: string; button: string }> = {
+  forest: {
+    panel: "bg-forest text-white",
+    body: "text-sage/80",
+    button: "",
+  },
+  orange: {
+    panel: "bg-accent text-ink",
+    body: "text-ink/80",
+    button: "bg-forest text-white hover:bg-forest-soft",
+  },
+  paper: {
+    panel: "border border-line bg-surface-2 text-ink",
+    body: "text-ink-soft",
+    button: "",
+  },
+};
+
+export function CTASection({ heading, description, ctaLabel, ctaHref, tone = "forest" }: CTASectionProps) {
+  const t = TONES[tone];
+
   return (
-    <section className="px-4 py-6 sm:px-6 lg:px-8">
+    <section className="px-4 py-4 sm:px-6 lg:px-8">
       <ScrollReveal>
-        <div className="mesh-bg mesh-bg-dark relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] border border-line bg-surface px-8 py-16 shadow-soft-lg sm:px-16 sm:py-24">
-          <div className="grid-lines absolute inset-0 -z-10 opacity-60" aria-hidden="true" />
-          <div className="flex flex-col items-start gap-6 md:flex-row md:items-end md:justify-between">
+        <div className={cn("mx-auto max-w-7xl rounded-2xl px-6 py-14 sm:px-14 sm:py-20", t.panel)}>
+          <div className="flex flex-col items-start gap-8 md:flex-row md:items-end md:justify-between">
             <div className="max-w-3xl">
-              <h2 className="text-balance text-display-md font-bold text-ink">{heading}</h2>
-              <p className="mt-4 max-w-xl text-lg text-ink-soft">{description}</p>
+              <h2 className="text-balance text-display-md uppercase">{heading}</h2>
+              <p className={cn("mt-4 max-w-xl text-lg", t.body)}>{description}</p>
             </div>
             <Button
               size="lg"
-              className="h-14 px-8 text-base"
+              className={cn("h-12 px-6 text-base", t.button)}
               render={
                 <Link href={ctaHref}>
                   {ctaLabel}

@@ -52,7 +52,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           { href: `/insights/${slug}`, label: article.title },
         ]}
       />
-      <p className="mt-6 text-xs font-semibold uppercase tracking-wide text-accent">{article.category}</p>
+      <p className="mt-6 text-xs font-semibold uppercase tracking-wide text-accent-ink">{article.category}</p>
       <h1 className="mt-2 text-display-lg font-bold text-ink">{article.title}</h1>
       <p className="mt-2 text-sm text-ink-soft">
         {article.author} - {article.date} - {article.readingTime}

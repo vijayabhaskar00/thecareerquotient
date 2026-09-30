@@ -6,7 +6,6 @@ import { IndustryCard } from "@/components/marketing/IndustryCard";
 import { ProcessTimeline } from "@/components/marketing/ProcessTimeline";
 import { ArticleCard } from "@/components/marketing/ArticleCard";
 import { CTASection } from "@/components/marketing/CTASection";
-import { Marquee } from "@/components/marketing/Marquee";
 import { SectionHeader } from "@/components/marketing/SectionHeader";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { StaggerGrid, StaggerItem } from "@/components/motion/StaggerGrid";
@@ -72,8 +71,6 @@ export default function HomePage() {
     <>
       <Hero />
 
-      <Marquee items={services.map((s) => s.name)} />
-
       <StatsSection stats={[]} />
 
       <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
@@ -82,25 +79,27 @@ export default function HomePage() {
         </ScrollReveal>
         <StaggerGrid className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
-            <StaggerItem key={service.slug} className={index === 0 ? "h-full sm:col-span-2" : "h-full"}>
+            <StaggerItem
+              key={service.slug}
+              className={index === 0 ? "h-full sm:col-span-2" : index === services.length - 1 ? "h-full lg:col-span-2" : "h-full"}
+            >
               <ServiceCard service={service} featured={index === 0} />
             </StaggerItem>
           ))}
         </StaggerGrid>
       </section>
 
-      <section className="border-y border-line bg-surface py-24">
+      <section className="bg-forest py-24 text-sage">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <SectionHeader eyebrow="Why Us" title="Recruitment Should Feel Human." />
+            <SectionHeader eyebrow="Why Us" title="Recruitment Should Feel Human." tone="dark" />
           </ScrollReveal>
-          <StaggerGrid className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {WHY_POINTS.map((point, index) => (
+          <StaggerGrid className="mt-14 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+            {WHY_POINTS.map((point) => (
               <StaggerItem key={point.title} className="h-full">
-                <div className="h-full rounded-3xl border border-line bg-background p-7 transition-colors duration-300 hover:border-accent/40">
-                  <span className="font-mono text-sm text-accent">{String(index + 1).padStart(2, "0")}</span>
-                  <h3 className="mt-10 text-2xl font-semibold tracking-tight text-ink">{point.title}</h3>
-                  <p className="mt-2 text-ink-soft">{point.description}</p>
+                <div className="h-full border-t-2 border-accent pt-5">
+                  <h3 className="text-2xl text-white">{point.title}</h3>
+                  <p className="mt-2 text-sage/80">{point.description}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -142,6 +141,7 @@ export default function HomePage() {
         description="Discover roles that match your skills, ambitions, and career goals."
         ctaLabel="Find Jobs"
         ctaHref="/find-jobs"
+        tone="orange"
       />
 
       <CTASection
@@ -173,6 +173,7 @@ export default function HomePage() {
         description="Talk to a talent expert about your next hire or your next career move."
         ctaLabel="Talk to Us"
         ctaHref="/contact"
+        tone="paper"
       />
     </>
   );

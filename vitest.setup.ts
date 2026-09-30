@@ -9,9 +9,8 @@ const mockFont = (name: string) => (config: object) => ({
 });
 
 vi.mock("next/font/google", () => ({
-  Inter: mockFont("inter"),
-  Bricolage_Grotesque: mockFont("bricolage"),
-  Instrument_Serif: mockFont("instrument_serif"),
+  Instrument_Sans: mockFont("instrument_sans"),
+  Archivo: mockFont("archivo"),
 }));
 
 

@@ -1,21 +1,15 @@
-import { Inter, Bricolage_Grotesque, Instrument_Serif } from "next/font/google";
+import { Instrument_Sans, Archivo } from "next/font/google";
 
-export const fontSans = Inter({
+export const fontSans = Instrument_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
 });
 
-export const fontDisplay = Bricolage_Grotesque({
+// Archivo has a width axis; headings use its condensed, heavy cut.
+export const fontDisplay = Archivo({
   subsets: ["latin"],
+  axes: ["wdth"],
   variable: "--font-display",
-  display: "swap",
-});
-
-export const fontSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  variable: "--font-serif",
   display: "swap",
 });

@@ -59,7 +59,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
             key={feature}
             className="flex items-start gap-3 rounded-xl bg-muted p-4 text-sm text-ink-soft"
           >
-            <Check className="mt-0.5 size-4 shrink-0 text-accent" strokeWidth={2.5} />
+            <Check className="mt-0.5 size-4 shrink-0 text-accent-ink" strokeWidth={2.5} />
             {feature}
           </li>
         ))}

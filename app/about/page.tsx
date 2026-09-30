@@ -36,9 +36,8 @@ export default function AboutPage() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <SectionHeader eyebrow="Our Values" title="What We Stand For" />
           <div className="mt-10 grid gap-x-12 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
-            {values.map((value, index) => (
-              <div key={value.title} className="flex gap-5 border-t border-line pt-5">
-                <span className="font-mono text-sm text-accent">{String(index + 1).padStart(2, "0")}</span>
+            {values.map((value) => (
+              <div key={value.title} className="border-t-2 border-ink pt-5">
                 <div>
                   <h3 className="font-semibold text-ink">{value.title}</h3>
                   <p className="mt-1.5 text-sm text-ink-soft">{value.description}</p>

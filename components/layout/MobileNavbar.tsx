@@ -31,7 +31,7 @@ export function MobileNavbar({ services = [], industries = [] }: MobileNavbarPro
     <div className="md:hidden">
       <button
         type="button"
-        className="focus-ring flex size-10 items-center justify-center rounded-full text-ink transition-colors duration-200 hover:bg-line-soft"
+        className="focus-ring flex size-10 items-center justify-center rounded-md text-ink transition-colors duration-150 hover:bg-line-soft"
         aria-expanded={open}
         aria-label={open ? "Close menu" : "Open menu"}
         onClick={() => setOpen(true)}

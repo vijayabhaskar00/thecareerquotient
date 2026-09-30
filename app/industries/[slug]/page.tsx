@@ -57,7 +57,7 @@ export default async function IndustryDetailPage({ params }: IndustryDetailPageP
       <ul className="mt-4 space-y-3">
         {industry.challenges.map((challenge) => (
           <li key={challenge} className="flex items-start gap-3 rounded-xl bg-muted p-4 text-sm text-ink-soft">
-            <AlertCircle className="mt-0.5 size-4 shrink-0 text-accent" strokeWidth={2} />
+            <AlertCircle className="mt-0.5 size-4 shrink-0 text-accent-ink" strokeWidth={2} />
             {challenge}
           </li>
         ))}
