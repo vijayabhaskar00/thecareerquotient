@@ -12,15 +12,15 @@ export default function CandidatePrivacyPage() {
   return (
     <LegalPageLayout title="Candidate Privacy Notice" lastUpdated="Pending counsel review">
       <section>
-        <h2 className="text-lg font-semibold text-navy-900">Information Collected From Candidates</h2>
+        <h2 className="text-lg font-semibold text-ink">Information Collected From Candidates</h2>
         <p className="mt-2 text-sm">This section will describe the resume and profile information collected from candidates.</p>
       </section>
       <section>
-        <h2 className="text-lg font-semibold text-navy-900">How Resume Data Is Used</h2>
+        <h2 className="text-lg font-semibold text-ink">How Resume Data Is Used</h2>
         <p className="mt-2 text-sm">This section will describe how submitted resumes are used and who can access them.</p>
       </section>
       <section>
-        <h2 className="text-lg font-semibold text-navy-900">Retention and Deletion</h2>
+        <h2 className="text-lg font-semibold text-ink">Retention and Deletion</h2>
         <p className="mt-2 text-sm">This section will describe how long candidate data is retained and how to request deletion.</p>
       </section>
     </LegalPageLayout>

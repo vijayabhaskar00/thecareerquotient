@@ -11,19 +11,19 @@ interface SectionHeaderProps {
 
 export function SectionHeader({ eyebrow, title, description, action, className }: SectionHeaderProps) {
   return (
-    <div className={cn("flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between", className)}>
-      <div className="max-w-2xl">
-        <div className="flex items-center gap-2">
-          <span className="h-px w-8 bg-accent" aria-hidden="true" />
-          <span className="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-accent">{eyebrow}</span>
-        </div>
-        <h2 className="mt-3 text-display-md font-bold text-navy-900">{title}</h2>
-        {description && <p className="mt-3 text-navy-700">{description}</p>}
+    <div className={cn("flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between", className)}>
+      <div className="max-w-3xl">
+        <span className="inline-flex items-center gap-2 rounded-full border border-line bg-line-soft px-3 py-1 font-mono text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-accent">
+          <span className="size-1.5 rounded-full bg-accent" aria-hidden="true" />
+          {eyebrow}
+        </span>
+        <h2 className="mt-5 text-balance text-display-md font-bold text-ink">{title}</h2>
+        {description && <p className="mt-4 max-w-xl text-lg text-ink-soft">{description}</p>}
       </div>
       {action && (
         <Link
           href={action.href}
-          className="focus-ring shrink-0 rounded font-semibold text-accent transition-transform duration-200 hover:gap-2"
+          className="focus-ring group inline-flex shrink-0 items-center gap-2 rounded-full border border-line px-5 py-2.5 text-sm font-semibold text-ink transition-colors duration-200 hover:border-accent hover:text-accent"
         >
           {action.label} &rarr;
         </Link>

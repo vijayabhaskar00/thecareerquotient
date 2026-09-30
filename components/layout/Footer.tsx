@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { services } from "@/content/services/data";
+import { LogoMark } from "@/components/marketing/LogoMark";
 
 const CANDIDATE_LINKS = [
   { href: "/find-jobs", label: "Find Jobs" },
@@ -35,11 +36,11 @@ interface FooterColumnProps {
 function FooterColumn({ title, links }: FooterColumnProps) {
   return (
     <div>
-      <p className="text-sm font-semibold uppercase tracking-wide text-navy-100">{title}</p>
+      <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-accent">{title}</p>
       <ul className="mt-3 flex flex-col gap-2">
         {links.map((link) => (
           <li key={`${link.href}-${link.label}`}>
-            <Link href={link.href} className="focus-ring rounded text-sm text-offwhite/90 hover:text-white">
+            <Link href={link.href} className="focus-ring rounded text-sm text-ink-soft transition-colors hover:text-ink">
               {link.label}
             </Link>
           </li>
@@ -53,11 +54,14 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-navy-100 bg-navy-900 text-offwhite">
+    <footer className="relative mt-10 overflow-hidden border-t border-line bg-surface text-ink">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-5 lg:px-8">
         <div className="lg:col-span-1">
-          <p className="text-lg font-bold">TheCareerQuotient</p>
-          <p className="mt-3 text-sm text-navy-100">
+          <p className="flex items-center gap-2 font-display text-lg font-bold">
+            <LogoMark />
+            TheCareerQuotient
+          </p>
+          <p className="mt-3 text-sm text-ink-soft">
             Human-first staffing and workforce solutions, built for how hiring actually works.
           </p>
         </div>
@@ -68,12 +72,19 @@ export function Footer() {
         <FooterColumn title="Company" links={COMPANY_LINKS} />
       </div>
 
-      <div className="border-t border-navy-700">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-6 text-sm text-navy-100 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+      <p
+        className="pointer-events-none select-none whitespace-nowrap text-center font-display text-[12.5vw] font-extrabold leading-none tracking-tighter text-ink/[0.04]"
+        aria-hidden="true"
+      >
+        CareerQuotient
+      </p>
+
+      <div className="relative border-t border-line">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-6 text-sm text-ink-soft sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
           <p>&copy; {year} TheCareerQuotient. All rights reserved.</p>
           <nav aria-label="Legal" className="flex flex-wrap gap-4">
             {LEGAL_LINKS.map((link) => (
-              <Link key={link.href} href={link.href} className="focus-ring rounded hover:text-white">
+              <Link key={link.href} href={link.href} className="focus-ring rounded hover:text-ink">
                 {link.label}
               </Link>
             ))}

@@ -53,11 +53,11 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         ]}
       />
       <p className="mt-6 text-xs font-semibold uppercase tracking-wide text-accent">{article.category}</p>
-      <h1 className="mt-2 text-display-lg font-bold text-navy-900">{article.title}</h1>
-      <p className="mt-2 text-sm text-navy-700">
+      <h1 className="mt-2 text-display-lg font-bold text-ink">{article.title}</h1>
+      <p className="mt-2 text-sm text-ink-soft">
         {article.author} - {article.date} - {article.readingTime}
       </p>
-      <div className="mt-8 space-y-4 text-navy-800">
+      <div className="mt-8 space-y-4 text-ink">
         <MDXRemote source={article.content} />
       </div>
     </article>
