@@ -6,6 +6,7 @@ import { IndustryCard } from "@/components/marketing/IndustryCard";
 import { ProcessTimeline } from "@/components/marketing/ProcessTimeline";
 import { ArticleCard } from "@/components/marketing/ArticleCard";
 import { CTASection } from "@/components/marketing/CTASection";
+import { LoopVideo } from "@/components/marketing/LoopVideo";
 import { SectionHeader } from "@/components/marketing/SectionHeader";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { StaggerGrid, StaggerItem } from "@/components/motion/StaggerGrid";
@@ -89,8 +90,15 @@ export default function HomePage() {
         </StaggerGrid>
       </section>
 
-      <section className="bg-forest py-24 text-sage">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-forest py-24 text-sage">
+        {/* Motion loop generated in Higgsfield. The blend drops the clip's slightly darker green, so only rings and dots show. */}
+        <LoopVideo
+          src="/videos/match-loop"
+          poster="/videos/match-loop-poster.webp"
+          playbackRate={1.6}
+          className="pointer-events-none absolute right-0 top-0 hidden h-[30rem] w-[66%] mix-blend-lighten md:block [-webkit-mask-composite:source-in] [mask-composite:intersect] [mask-image:linear-gradient(to_bottom,#000_28%,transparent_60%),linear-gradient(to_right,transparent,#000_32%)]"
+        />
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <SectionHeader eyebrow="Why Us" title="Recruitment Should Feel Human." tone="dark" />
           </ScrollReveal>
