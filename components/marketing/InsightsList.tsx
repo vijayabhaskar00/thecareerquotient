@@ -47,7 +47,7 @@ export function InsightsList({ articles, categories }: InsightsListProps) {
             heading="No articles matched this category."
             description="Try a different category or view all insights."
             action={
-              <Link href="/insights" className="font-semibold text-accent">
+              <Link href="/insights" className="font-semibold text-accent-ink">
                 View all insights
               </Link>
             }

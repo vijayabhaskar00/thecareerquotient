@@ -36,11 +36,11 @@ interface FooterColumnProps {
 function FooterColumn({ title, links }: FooterColumnProps) {
   return (
     <div>
-      <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-accent">{title}</p>
+      <p className="text-sm font-bold text-accent">{title}</p>
       <ul className="mt-3 flex flex-col gap-2">
         {links.map((link) => (
           <li key={`${link.href}-${link.label}`}>
-            <Link href={link.href} className="focus-ring rounded text-sm text-ink-soft transition-colors hover:text-ink">
+            <Link href={link.href} className="focus-ring rounded text-sm text-sage/80 transition-colors hover:text-white">
               {link.label}
             </Link>
           </li>
@@ -54,14 +54,14 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative mt-10 overflow-hidden border-t border-line bg-surface text-ink">
+    <footer className="bg-forest text-sage">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-5 lg:px-8">
         <div className="lg:col-span-1">
-          <p className="flex items-center gap-2 font-display text-lg font-bold">
-            <LogoMark />
+          <p className="flex items-center gap-2.5 text-lg font-bold text-white">
+            <LogoMark className="size-8 rounded-lg ring-1 ring-white/30" />
             TheCareerQuotient
           </p>
-          <p className="mt-3 text-sm text-ink-soft">
+          <p className="mt-3 text-sm text-sage/70">
             Human-first staffing and workforce solutions, built for how hiring actually works.
           </p>
         </div>
@@ -72,19 +72,12 @@ export function Footer() {
         <FooterColumn title="Company" links={COMPANY_LINKS} />
       </div>
 
-      <p
-        className="pointer-events-none select-none whitespace-nowrap text-center font-display text-[12.5vw] font-extrabold leading-none tracking-tighter text-ink/[0.04]"
-        aria-hidden="true"
-      >
-        CareerQuotient
-      </p>
-
-      <div className="relative border-t border-line">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-6 text-sm text-ink-soft sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+      <div className="border-t border-white/15">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-6 text-sm text-sage/70 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
           <p>&copy; {year} TheCareerQuotient. All rights reserved.</p>
           <nav aria-label="Legal" className="flex flex-wrap gap-4">
             {LEGAL_LINKS.map((link) => (
-              <Link key={link.href} href={link.href} className="focus-ring rounded hover:text-ink">
+              <Link key={link.href} href={link.href} className="focus-ring rounded hover:text-white">
                 {link.label}
               </Link>
             ))}

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { SpotlightCard } from "@/components/motion/SpotlightCard";
 
 export interface ArticleSummary {
   slug: string;
@@ -16,12 +15,12 @@ interface ArticleCardProps {
 
 export function ArticleCard({ article }: ArticleCardProps) {
   return (
-    <SpotlightCard className="group flex h-full flex-col rounded-3xl border border-line bg-surface p-7 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40">
-      <span className="inline-flex w-fit items-center rounded-full border border-accent/30 bg-accent/10 px-3 py-1 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-accent">
+    <article className="group flex h-full flex-col rounded-xl border border-line bg-surface-2 p-6 transition-colors duration-150 hover:border-ink">
+      <span className="inline-flex w-fit items-center rounded-md bg-accent px-2.5 py-1 text-xs font-bold text-ink">
         {article.category}
       </span>
-      <h3 className="mt-5 text-xl font-semibold leading-snug tracking-tight text-ink">
-        <Link href={`/insights/${article.slug}`} className="focus-ring rounded transition-colors group-hover:text-accent">
+      <h3 className="mt-4 text-xl leading-snug text-ink">
+        <Link href={`/insights/${article.slug}`} className="focus-ring rounded group-hover:underline-ink">
           {article.title}
         </Link>
       </h3>
@@ -29,6 +28,6 @@ export function ArticleCard({ article }: ArticleCardProps) {
       <p className="mt-4 text-xs text-ink-soft">
         {article.date} &middot; {article.readingTime}
       </p>
-    </SpotlightCard>
+    </article>
   );
 }

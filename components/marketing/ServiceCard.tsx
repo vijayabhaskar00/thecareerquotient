@@ -9,7 +9,6 @@ import {
   Rocket,
   type LucideIcon,
 } from "lucide-react";
-import { SpotlightCard } from "@/components/motion/SpotlightCard";
 import type { Service } from "@/content/services/types";
 
 const SERVICE_ICONS: Record<string, LucideIcon> = {
@@ -31,34 +30,35 @@ export function ServiceCard({ service, featured = false }: ServiceCardProps) {
   const Icon = SERVICE_ICONS[service.slug] ?? Users;
 
   return (
-    <SpotlightCard
-      className={`group flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-surface p-7 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 ${
-        featured ? "sm:p-10" : ""
+    <article
+      className={`group flex h-full flex-col rounded-xl border p-6 transition-colors duration-150 ${
+        featured
+          ? "border-forest bg-forest text-sage sm:p-9"
+          : "border-line bg-surface-2 hover:border-ink"
       }`}
     >
-      {featured && (
-        <div
-          className="pointer-events-none absolute -right-24 -top-24 size-72 rounded-full bg-aurora-violet/30 blur-3xl"
-          aria-hidden="true"
-        />
-      )}
       <div
-        className={`relative flex items-center justify-center rounded-2xl border border-line bg-line-soft text-accent transition-all duration-300 group-hover:border-accent group-hover:bg-accent group-hover:text-black ${
-          featured ? "size-16" : "size-12"
+        className={`flex items-center justify-center rounded-lg ${
+          featured ? "size-14 bg-accent text-ink" : "size-11 bg-line-soft text-ink"
         }`}
       >
-        <Icon className={featured ? "size-8" : "size-6"} strokeWidth={1.6} />
+        <Icon className={featured ? "size-7" : "size-5"} strokeWidth={1.75} />
       </div>
 
-      <h3 className={`relative mt-6 font-semibold tracking-tight text-ink ${featured ? "text-3xl" : "text-xl"}`}>
-        {service.name}
-      </h3>
-      <p className={`relative mt-2 text-ink-soft ${featured ? "max-w-xl text-lg" : "text-sm"}`}>{service.tagline}</p>
+      <h3 className={`mt-6 ${featured ? "text-3xl text-white" : "text-xl text-ink"}`}>{service.name}</h3>
+      <p className={`mt-2 ${featured ? "max-w-xl text-lg text-sage/85" : "text-sm text-ink-soft"}`}>{service.tagline}</p>
 
-      <ul className={`relative mt-5 flex-1 space-y-2 text-sm text-ink-soft ${featured ? "sm:columns-2" : "hidden sm:block"}`}>
+      <ul
+        className={`mt-5 flex-1 space-y-2 text-sm ${
+          featured ? "text-sage/85 sm:columns-2" : "hidden text-ink-soft sm:block"
+        }`}
+      >
         {service.features.slice(0, featured ? 5 : 3).map((feature) => (
           <li key={feature} className="flex gap-2">
-            <span className="mt-2 size-1 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+            <span
+              className={`mt-2 size-1.5 shrink-0 rounded-full ${featured ? "bg-accent" : "bg-ink"}`}
+              aria-hidden="true"
+            />
             {feature}
           </li>
         ))}
@@ -66,11 +66,13 @@ export function ServiceCard({ service, featured = false }: ServiceCardProps) {
 
       <Link
         href={`/services/${service.slug}`}
-        className="focus-ring relative mt-6 inline-flex items-center gap-1 rounded font-semibold text-accent transition-all duration-200 hover:gap-2"
+        className={`focus-ring mt-6 inline-flex items-center gap-1 rounded font-semibold transition-all duration-150 hover:gap-2 ${
+          featured ? "text-accent" : "text-accent-ink"
+        }`}
       >
         {service.ctaLabel}
         <span aria-hidden="true">&rarr;</span>
       </Link>
-    </SpotlightCard>
+    </article>
   );
 }

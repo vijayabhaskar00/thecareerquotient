@@ -24,7 +24,7 @@ export function MegaMenu({ label, basePath, overviewHref, items }: MegaMenuProps
     <div className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
       <button
         type="button"
-        className="focus-ring flex items-center gap-1 rounded-full px-3 py-1.5 text-sm text-ink-soft transition-colors duration-200 hover:bg-line-soft hover:text-ink"
+        className="focus-ring flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-ink-soft transition-colors duration-150 hover:bg-line-soft hover:text-ink"
         aria-haspopup="true"
         aria-expanded={open}
         aria-controls={menuId}
@@ -39,7 +39,7 @@ export function MegaMenu({ label, basePath, overviewHref, items }: MegaMenuProps
         <div
           id={menuId}
           role="menu"
-          className="absolute left-0 top-full z-40 mt-3 grid w-80 grid-cols-1 gap-1 rounded-2xl border border-line bg-surface p-4 shadow-soft-lg before:absolute before:inset-x-0 before:-top-3 before:h-3 before:content-['']"
+          className="absolute left-0 top-full z-40 mt-3 grid w-80 grid-cols-1 gap-1 rounded-xl border border-line bg-surface-2 p-3 shadow-soft-lg before:absolute before:inset-x-0 before:-top-3 before:h-3 before:content-['']"
         >
           <Link
             href={overviewHref}

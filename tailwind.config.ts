@@ -8,45 +8,48 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // text
         ink: {
-          DEFAULT: "#F4F2EC",
-          soft: "#A7A9B4",
+          DEFAULT: "#0D2B24",
+          soft: "#46605A",
         },
+        // hairlines
         line: {
-          DEFAULT: "rgba(255,255,255,0.10)",
-          soft: "rgba(255,255,255,0.06)",
+          DEFAULT: "rgba(13,43,36,0.16)",
+          soft: "rgba(13,43,36,0.06)",
         },
+        // cards sit on the sage page background
         surface: {
-          DEFAULT: "#0E0F15",
-          2: "#14151D",
+          DEFAULT: "#F8FAF7",
+          2: "#FFFFFF",
         },
+        forest: {
+          DEFAULT: "#0D2B24",
+          soft: "#16403A",
+        },
+        sage: "#E9EEE9",
         accent: {
-          DEFAULT: "#C6F432",
-          light: "#DDFF6E",
-        },
-        aurora: {
-          violet: "#8B5CF6",
-          cyan: "#22D3EE",
-          pink: "#F472B6",
+          DEFAULT: "#FF5A1F", // fills
+          ink: "#B8330A", // text on light backgrounds (AA)
+          light: "#FF7443",
         },
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
         display: ["var(--font-display)", "var(--font-sans)", "system-ui", "sans-serif"],
-        serif: ["var(--font-serif)", "Georgia", "serif"],
       },
       fontSize: {
         "display-xl": [
-          "clamp(2.75rem, 7vw + 0.5rem, 6.5rem)",
-          { lineHeight: "0.98", letterSpacing: "-0.04em" },
+          "clamp(3.25rem, 9.5vw, 8.25rem)",
+          { lineHeight: "0.9", letterSpacing: "-0.015em" },
         ],
         "display-lg": [
-          "clamp(2.5rem, 4.5vw + 1rem, 4.75rem)",
-          { lineHeight: "1.02", letterSpacing: "-0.035em" },
+          "clamp(2.75rem, 6vw, 5.5rem)",
+          { lineHeight: "0.94", letterSpacing: "-0.015em" },
         ],
         "display-md": [
-          "clamp(2rem, 3vw + 1rem, 3.5rem)",
-          { lineHeight: "1.05", letterSpacing: "-0.03em" },
+          "clamp(2.25rem, 4.2vw, 4rem)",
+          { lineHeight: "0.98", letterSpacing: "-0.01em" },
         ],
       },
     },
