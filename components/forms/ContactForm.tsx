@@ -67,11 +67,11 @@ export function ContactForm() {
       <fieldset>
         <legend className="text-sm font-medium text-ink">I am a...</legend>
         <div className="mt-1.5 flex gap-2">
-          <label className="has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-accent has-[:focus-visible]:ring-offset-2 cursor-pointer rounded-full border border-line px-5 py-2.5 text-sm font-medium text-ink-soft transition-colors duration-200 hover:border-accent/50">
+          <label className="has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-ink has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-accent has-[:focus-visible]:ring-offset-2 cursor-pointer rounded-full border border-line px-5 py-2.5 text-sm font-medium text-ink-soft transition-colors duration-200 hover:border-accent/50">
             <input type="radio" value="employer" {...register("audience")} className="sr-only" />
             Employer
           </label>
-          <label className="has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-accent has-[:focus-visible]:ring-offset-2 cursor-pointer rounded-full border border-line px-5 py-2.5 text-sm font-medium text-ink-soft transition-colors duration-200 hover:border-accent/50">
+          <label className="has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-ink has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-accent has-[:focus-visible]:ring-offset-2 cursor-pointer rounded-full border border-line px-5 py-2.5 text-sm font-medium text-ink-soft transition-colors duration-200 hover:border-accent/50">
             <input type="radio" value="candidate" {...register("audience")} className="sr-only" />
             Candidate
           </label>

@@ -1,67 +1,16 @@
 "use client";
 
-import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import type { Article } from "@/lib/content/insights";
-import { ArticleCard } from "@/components/marketing/ArticleCard";
-import { EmptyState } from "@/components/states/EmptyState";
-import { StaggerGrid, StaggerItem } from "@/components/motion/StaggerGrid";
+import type { ArticleSummary } from "@/components/marketing/ArticleCard";
+import { InsightsView } from "@/components/marketing/InsightsView";
 
 interface InsightsListProps {
-  articles: Article[];
+  articles: ArticleSummary[];
   categories: string[];
 }
 
+/** Client wrapper: reads `?category=` and filters. The unfiltered list is already in the server HTML. */
 export function InsightsList({ articles, categories }: InsightsListProps) {
-  const searchParams = useSearchParams();
-  const category = searchParams.get("category") ?? undefined;
-  const filtered = category ? articles.filter((a) => a.category === category) : articles;
-
-  return (
-    <>
-      <nav aria-label="Filter by category" className="mt-6 flex flex-wrap gap-2">
-        <Link
-          href="/insights"
-          className={`rounded-full border px-4 py-2 text-sm ${
-            !category ? "border-ink bg-surface-2 text-white" : "border-line text-ink-soft"
-          }`}
-        >
-          All
-        </Link>
-        {categories.map((cat) => (
-          <Link
-            key={cat}
-            href={`/insights?category=${encodeURIComponent(cat)}`}
-            className={`rounded-full border px-4 py-2 text-sm ${
-              category === cat ? "border-ink bg-surface-2 text-white" : "border-line text-ink-soft"
-            }`}
-          >
-            {cat}
-          </Link>
-        ))}
-      </nav>
-
-      {filtered.length === 0 ? (
-        <div className="mt-10">
-          <EmptyState
-            heading="No articles matched this category."
-            description="Try a different category or view all insights."
-            action={
-              <Link href="/insights" className="font-semibold text-accent-ink">
-                View all insights
-              </Link>
-            }
-          />
-        </div>
-      ) : (
-        <StaggerGrid className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((article) => (
-            <StaggerItem key={article.slug} className="h-full">
-              <ArticleCard article={article} />
-            </StaggerItem>
-          ))}
-        </StaggerGrid>
-      )}
-    </>
-  );
+  const active = useSearchParams().get("category") ?? undefined;
+  return <InsightsView articles={articles} categories={categories} active={active} />;
 }
