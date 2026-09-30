@@ -143,6 +143,29 @@ a {
   animation-delay: var(--d, 0ms);
 }
 
+/* The hero 3D mark shows its own poster while loading, so hide model-viewer's default dark loading bar. */
+model-viewer {
+  --progress-bar-color: transparent;
+  --progress-bar-height: 0px;
+}
+
+model-viewer::part(default-progress-bar) {
+  display: none;
+}
+
+/* Dots hop out of their rings and snap back (DotWave). Loops every 1.8s; the wave comes from per-dot delays. */
+@keyframes dot-hop {
+  0% { transform: translateX(0); animation-timing-function: cubic-bezier(0.2, 0.9, 0.3, 1); }
+  16% { transform: translateX(28px); }
+  30% { transform: translateX(28px); animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0.4); }
+  40% { transform: translateX(-5px); animation-timing-function: ease-out; }
+  48%, 100% { transform: translateX(0); }
+}
+
+.dot-hop {
+  animation: dot-hop 1.8s infinite;
+}
+
 /* The orange highlighter stroke behind a key phrase, wiped in left to right. */
 .marker {
   background: linear-gradient(var(--accent), var(--accent)) no-repeat 0 0 / 100% 100%;

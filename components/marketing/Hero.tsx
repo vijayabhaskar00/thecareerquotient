@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HeroVisual } from "@/components/marketing/HeroVisual";
 import { HeroModel } from "@/components/marketing/HeroModel";
+import { DotWave } from "@/components/marketing/DotWave";
 
 /** Start delay for CSS entrance animations (see .hl-word, .hl-dot, .hero-rise in globals.css). */
 const after = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
@@ -88,7 +89,7 @@ export function Hero() {
                   Discover roles that match your skills, ambitions, and career goals.
                 </p>
               </div>
-              <ArrowUpRight className="size-12 text-ink" strokeWidth={1.5} aria-hidden="true" />
+              <DotWave className="mx-auto aspect-square w-full max-w-[20rem]" />
             </div>
           </div>
 
